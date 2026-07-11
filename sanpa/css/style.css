@@ -1,0 +1,1038 @@
+/* ==========================================================================
+   SANPA — Services Extrêmes
+   Feuille de style principale
+   --------------------------------------------------------------------------
+   Site statique multi-pages (index.html, contact.html, reservation.html).
+   Approche MOBILE-FIRST : les styles de base ciblent les téléphones,
+   les media queries (min-width) adaptent ensuite pour tablette / bureau.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES GLOBALES (identité visuelle de la carte de visite)
+   Modifier une couleur ici la change sur tout le site.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Fonds */
+  --couleur-fond: #0A0A0B;            /* noir / anthracite très sombre */
+  --couleur-fond-2: #111113;          /* légèrement plus clair (cartes, sections alternées) */
+  --couleur-fond-3: #1A1A1E;          /* surfaces surélevées (champs, hover) */
+
+  /* Textes */
+  --couleur-texte: #FFFFFF;           /* texte principal */
+  --couleur-texte-2: #B8B8B8;         /* texte secondaire (gris clair) */
+
+  /* Accent signature = dégradé du logo (vert → turquoise → bleu) */
+  --degrade-accent: linear-gradient(135deg, #35D07F 0%, #24D6C4 50%, #3B82F6 100%);
+  --accent-vert: #35D07F;
+  --accent-turquoise: #24D6C4;
+  --accent-bleu: #3B82F6;
+
+  /* Vert « SERVICES EXTRÊMES » de la carte */
+  --vert-slogan: #9CCC3C;
+
+  /* Bordures et séparateurs discrets */
+  --couleur-bordure: rgba(255, 255, 255, 0.08);
+
+  /* Typographie */
+  --police: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Dimensions récurrentes */
+  --largeur-max: 1140px;              /* largeur maximale du contenu */
+  --rayon: 12px;                      /* arrondi des cartes / boutons */
+  --hauteur-header: 68px;             /* hauteur du header fixe */
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET LÉGER + BASES
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compense le header fixe lors des ancres (#services, etc.) */
+  scroll-padding-top: calc(var(--hauteur-header) + 16px);
+}
+
+body {
+  font-family: var(--police);
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Conteneur central : limite la largeur du contenu et centre la page */
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   3. UTILITAIRES (texte dégradé, badges, titres de section…)
+   -------------------------------------------------------------------------- */
+
+/* Applique le dégradé signature à du texte (ex. le « A » du logo) */
+.texte-degrade {
+  background: var(--degrade-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Petit label vert au-dessus des titres de section (esprit « SERVICES EXTRÊMES ») */
+.surtitre {
+  display: inline-block;
+  color: var(--vert-slogan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Titre de section */
+.titre-section {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Paragraphe d'introduction sous un titre de section */
+.intro-section {
+  color: var(--couleur-texte-2);
+  margin-top: 12px;
+  max-width: 640px;
+}
+
+/* Espacement vertical standard d'une section */
+.section {
+  padding: 72px 0;
+}
+
+/* Section sur fond légèrement plus clair pour alterner les blocs */
+.section--alt {
+  background-color: var(--couleur-fond-2);
+  border-top: 1px solid var(--couleur-bordure);
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+/* --------------------------------------------------------------------------
+   4. BOUTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;               /* boutons « pilule » */
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Bouton principal : fond dégradé signature, texte sombre pour le contraste */
+.btn--principal {
+  background: var(--degrade-accent);
+  color: #05130C;
+}
+
+.btn--principal:hover {
+  box-shadow: 0 8px 24px rgba(36, 214, 196, 0.35);
+}
+
+/* Bouton secondaire : contour discret sur fond sombre */
+.btn--secondaire {
+  background: transparent;
+  color: var(--couleur-texte);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn--secondaire:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Bouton pleine largeur (formulaires sur mobile) */
+.btn--bloc {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   5. HEADER FIXE + NAVIGATION
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--hauteur-header);
+  /* Fond semi-transparent flouté : le contenu reste lisible en défilant */
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.header__inner {
+  height: var(--hauteur-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Logo texte : « SANP » blanc + « A » en dégradé, slogan vert dessous */
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo__nom {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--couleur-texte);
+}
+
+.logo__slogan {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--vert-slogan);
+}
+
+/* Navigation : cachée sur mobile, ouverte via le bouton burger */
+.nav {
+  position: fixed;
+  top: var(--hauteur-header);
+  left: 0;
+  right: 0;
+  background: var(--couleur-fond-2);
+  border-bottom: 1px solid var(--couleur-bordure);
+  padding: 12px 20px 20px;
+  display: none;                       /* masquée par défaut sur mobile */
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Classe ajoutée/retirée par js/main.js au clic sur le burger */
+.nav.est-ouvert {
+  display: flex;
+}
+
+.nav__lien {
+  padding: 12px 8px;
+  border-radius: 8px;
+  color: var(--couleur-texte-2);
+  font-weight: 500;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav__lien:hover {
+  color: var(--couleur-texte);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Lien de la page en cours (attribut aria-current="page" dans le HTML) */
+.nav__lien[aria-current="page"] {
+  color: var(--couleur-texte);
+  font-weight: 700;
+}
+
+/* Le bouton devis dans le menu mobile */
+.nav .btn {
+  margin-top: 10px;
+}
+
+/* Bouton burger (mobile uniquement) */
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--couleur-texte);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Animation du burger en croix quand le menu est ouvert */
+.burger.est-ouvert span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.est-ouvert span:nth-child(2) {
+  opacity: 0;
+}
+.burger.est-ouvert span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Décale tout le contenu sous le header fixe */
+main {
+  padding-top: var(--hauteur-header);
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO (accueil, plein écran)
+   -------------------------------------------------------------------------- */
+.hero {
+  min-height: calc(100vh - var(--hauteur-header));
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  /* Halos discrets aux couleurs du dégradé pour donner de la profondeur */
+  background:
+    radial-gradient(ellipse 60% 45% at 15% 0%, rgba(53, 208, 127, 0.10), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 90% 90%, rgba(59, 130, 246, 0.10), transparent 60%),
+    var(--couleur-fond);
+}
+
+.hero__contenu {
+  padding: 64px 0;
+  max-width: 720px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--couleur-texte-2);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 999px;
+  padding: 8px 14px;
+  margin-bottom: 24px;
+}
+
+/* Point vert « disponible » dans le badge */
+.hero__badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vert-slogan);
+}
+
+.hero__titre {
+  /* clamp() : la taille s'adapte à la largeur de l'écran (min, idéal, max)
+     pour que « Services Extrêmes » ne déborde jamais sur les petits mobiles */
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero__soustitre {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: var(--couleur-texte-2);
+  max-width: 560px;
+}
+
+.hero__actions {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;              /* boutons empilés sur mobile */
+  gap: 12px;
+}
+
+/* Points de réassurance sous les boutons du hero */
+.hero__points {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  color: var(--couleur-texte-2);
+  font-size: 0.88rem;
+}
+
+.hero__points li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__points svg {
+  color: var(--accent-turquoise);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. CARTES DE SERVICES
+   -------------------------------------------------------------------------- */
+.grille-services {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;          /* 1 colonne sur mobile */
+  gap: 16px;
+}
+
+.carte-service {
+  background: var(--couleur-fond-2);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 26px 22px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.carte-service:hover {
+  transform: translateY(-4px);
+  border-color: rgba(36, 214, 196, 0.4); /* liseré turquoise au survol */
+}
+
+/* Pastille d'icône : fine icône en ligne sur fond dégradé très atténué */
+.carte-service__icone {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(53, 208, 127, 0.12), rgba(59, 130, 246, 0.12));
+  border: 1px solid rgba(36, 214, 196, 0.25);
+  color: var(--accent-turquoise);
+  margin-bottom: 18px;
+}
+
+.carte-service__titre {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.carte-service__texte {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: var(--couleur-texte-2);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION « POURQUOI SANPA » (réassurance)
+   -------------------------------------------------------------------------- */
+.grille-atouts {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.atout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  background: var(--couleur-fond);
+}
+
+.atout__icone {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(156, 204, 60, 0.12);  /* vert slogan très atténué */
+  border: 1px solid rgba(156, 204, 60, 0.3);
+  color: var(--vert-slogan);
+}
+
+.atout__titre {
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.atout__texte {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--couleur-texte-2);
+}
+
+/* --------------------------------------------------------------------------
+   9. ZONE D'INTERVENTION
+   -------------------------------------------------------------------------- */
+.zone {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.zone__carte {
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 28px;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(36, 214, 196, 0.08), transparent 70%),
+    var(--couleur-fond-2);
+  text-align: center;
+}
+
+.zone__carte svg {
+  margin: 0 auto 16px;
+  color: var(--accent-turquoise);
+}
+
+.zone__departements {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.zone__note {
+  margin-top: 6px;
+  color: var(--couleur-texte-2);
+  font-size: 0.9rem;
+}
+
+/* Liste des villes principales sous forme d'étiquettes */
+.zone__villes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.zone__villes li {
+  padding: 8px 16px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--couleur-texte-2);
+  background: var(--couleur-fond-2);
+}
+
+/* --------------------------------------------------------------------------
+   10. BANDEAU CTA (avant le footer)
+   -------------------------------------------------------------------------- */
+.cta {
+  padding: 64px 0;
+}
+
+.cta__boite {
+  border-radius: 20px;
+  padding: 44px 24px;
+  text-align: center;
+  border: 1px solid rgba(36, 214, 196, 0.3);
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 0%, rgba(53, 208, 127, 0.12), transparent 70%),
+    var(--couleur-fond-2);
+}
+
+.cta__titre {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.cta__texte {
+  margin-top: 12px;
+  color: var(--couleur-texte-2);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta__actions {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   11. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--couleur-bordure);
+  background: var(--couleur-fond-2);
+  padding: 48px 0 24px;
+  font-size: 0.9rem;
+}
+
+.footer__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.footer__texte {
+  margin-top: 12px;
+  color: var(--couleur-texte-2);
+  max-width: 320px;
+}
+
+.footer__titre {
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--couleur-texte-2);
+}
+
+.footer__liens li + li,
+.footer__coordonnees li + li {
+  margin-top: 8px;
+}
+
+.footer__liens a:hover {
+  color: var(--accent-turquoise);
+}
+
+.footer__coordonnees li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--couleur-texte-2);
+}
+
+.footer__coordonnees svg {
+  color: var(--accent-turquoise);
+  flex-shrink: 0;
+}
+
+.footer__bas {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--couleur-bordure);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--couleur-texte-2);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. PAGES INTERNES (en-tête de page Contact / Réservation)
+   -------------------------------------------------------------------------- */
+.entete-page {
+  padding: 56px 0 8px;
+}
+
+.entete-page .titre-section {
+  font-size: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. FORMULAIRES (contact + réservation)
+   -------------------------------------------------------------------------- */
+.disposition-formulaire {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* Panneau d'informations à côté du formulaire (coordonnées, réassurance) */
+.panneau-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bloc-info {
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 20px;
+  background: var(--couleur-fond-2);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.bloc-info svg {
+  color: var(--accent-turquoise);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bloc-info strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.bloc-info span,
+.bloc-info a {
+  color: var(--couleur-texte-2);
+  font-size: 0.9rem;
+}
+
+.bloc-info a:hover {
+  color: var(--accent-turquoise);
+}
+
+/* Encadré « confidentialité » mis en avant (vert slogan) */
+.bloc-info--confidentialite {
+  border-color: rgba(156, 204, 60, 0.35);
+}
+
+.bloc-info--confidentialite svg {
+  color: var(--vert-slogan);
+}
+
+/* Le formulaire lui-même */
+.formulaire {
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 24px 20px;
+  background: var(--couleur-fond-2);
+}
+
+.formulaire__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.champ label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Astérisque des champs obligatoires */
+.champ label .obligatoire {
+  color: var(--vert-slogan);
+}
+
+.champ input,
+.champ select,
+.champ textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--couleur-bordure);
+  background: var(--couleur-fond-3);
+  color: var(--couleur-texte);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Contour turquoise au focus, visible au clavier comme à la souris */
+.champ input:focus,
+.champ select:focus,
+.champ textarea:focus {
+  outline: none;
+  border-color: var(--accent-turquoise);
+  box-shadow: 0 0 0 3px rgba(36, 214, 196, 0.18);
+}
+
+.champ textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Flèche personnalisée du <select> (l'apparence native est masquée) */
+.champ select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23B8B8B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+/* Assombrit le calendrier natif des champs date sur fond sombre */
+.champ input[type="date"] {
+  color-scheme: dark;
+}
+
+/* Choix du niveau d'urgence : deux « boutons radio » côte à côte */
+.champ-urgence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.champ-urgence input[type="radio"] {
+  /* La puce native est masquée : c'est le <label> stylé qui sert de bouton */
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.champ-urgence label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--couleur-bordure);
+  background: var(--couleur-fond-3);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* État sélectionné : normal = turquoise, urgent = vert slogan */
+.champ-urgence input[value="normal"]:checked + label {
+  border-color: var(--accent-turquoise);
+  background: rgba(36, 214, 196, 0.12);
+}
+
+.champ-urgence input[value="urgent"]:checked + label {
+  border-color: var(--vert-slogan);
+  background: rgba(156, 204, 60, 0.12);
+}
+
+/* Contour visible quand on navigue au clavier */
+.champ-urgence input:focus-visible + label {
+  box-shadow: 0 0 0 3px rgba(36, 214, 196, 0.25);
+}
+
+/* Case de consentement RGPD */
+.champ-consentement {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  color: var(--couleur-texte-2);
+}
+
+.champ-consentement input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--accent-turquoise);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.champ-consentement label {
+  cursor: pointer;
+}
+
+/* Message de confirmation affiché par js/main.js après l'envoi */
+.message-confirmation {
+  display: none;                       /* masqué tant que le formulaire n'est pas envoyé */
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(53, 208, 127, 0.45);
+  background: rgba(53, 208, 127, 0.1);
+  color: var(--couleur-texte);
+  font-size: 0.92rem;
+}
+
+.message-confirmation.est-visible {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.message-confirmation svg {
+  color: var(--accent-vert);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Note discrète sous le bouton d'envoi */
+.note-formulaire {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--couleur-texte-2);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   14. ACCESSIBILITÉ : réduit les animations si l'utilisateur le demande
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   15. MEDIA QUERIES — TABLETTE (≥ 640px)
+   ========================================================================== */
+@media (min-width: 640px) {
+  .titre-section {
+    font-size: 2.1rem;
+  }
+
+  .hero__titre {
+    font-size: 3.2rem;
+  }
+
+  /* Les boutons du hero et du CTA passent côte à côte */
+  .hero__actions,
+  .cta__actions {
+    flex-direction: row;
+  }
+
+  .cta__actions {
+    justify-content: center;
+  }
+
+  /* 2 cartes de services par ligne */
+  .grille-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grille-atouts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .formulaire {
+    padding: 32px;
+  }
+
+  /* Certains champs passent sur 2 colonnes (voir classes dans le HTML) */
+  .formulaire__grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Un champ qui occupe toute la largeur de la grille */
+  .champ--large {
+    grid-column: 1 / -1;
+  }
+
+  .footer__grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__bas {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================================================
+   16. MEDIA QUERIES — BUREAU (≥ 980px)
+   ========================================================================== */
+@media (min-width: 980px) {
+  /* Le burger disparaît, la navigation s'affiche en ligne dans le header */
+  .burger {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .nav__lien {
+    padding: 8px 14px;
+    font-size: 0.92rem;
+  }
+
+  .nav .btn {
+    margin-top: 0;
+    margin-left: 12px;
+    padding: 10px 20px;
+    font-size: 0.88rem;
+  }
+
+  .hero__titre {
+    font-size: 4rem;
+  }
+
+  /* 3 cartes de services par ligne */
+  .grille-services {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grille-atouts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .atout {
+    flex-direction: column;
+  }
+
+  /* Zone d'intervention : carte à gauche, villes à droite */
+  .zone {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+  }
+
+  .zone__villes {
+    justify-content: flex-start;
+  }
+
+  .cta__boite {
+    padding: 64px 48px;
+  }
+
+  /* Formulaires : panneau d'infos à gauche, formulaire à droite */
+  .disposition-formulaire {
+    grid-template-columns: 0.85fr 1.4fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .footer__grille {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation / Devis — SANPA | Services Extrêmes en Corse</title>
+  <meta name="description" content="Demandez une intervention SANPA en Corse : débarras, nettoyage Diogène, après décès, après sinistre, fin de chantier ou désinfection. Devis gratuit et confidentiel.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       HEADER FIXE (identique à l'accueil)
+       ====================================================================== -->
+  <header class="header">
+    <div class="conteneur header__inner">
+
+      <a href="index.html" class="logo" aria-label="SANPA — retour à l'accueil">
+        <span class="logo__nom">SANP<span class="texte-degrade">A</span></span>
+        <span class="logo__slogan">Services Extrêmes</span>
+      </a>
+
+      <button class="burger" id="bouton-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="menu-principal" aria-label="Navigation principale">
+        <a class="nav__lien" href="index.html">Accueil</a>
+        <a class="nav__lien" href="index.html#services">Services</a>
+        <a class="nav__lien" href="reservation.html" aria-current="page">Réservation</a>
+        <a class="nav__lien" href="contact.html">Contact</a>
+        <a class="btn btn--principal" href="reservation.html">Demander un devis</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- En-tête de la page -->
+    <section class="entete-page">
+      <div class="conteneur">
+        <span class="surtitre">Réservation</span>
+        <h1 class="titre-section">Demandez une intervention<br>ou un devis gratuit</h1>
+        <p class="intro-section">
+          Remplissez ce formulaire en quelques minutes : nous étudions votre
+          demande et revenons vers vous rapidement avec une proposition
+          adaptée. Sans engagement, et en toute confidentialité.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="conteneur">
+        <div class="disposition-formulaire">
+
+          <!-- ============================================================
+               COLONNE GAUCHE : comment ça se passe + réassurance
+               ============================================================ -->
+          <aside class="panneau-infos">
+
+            <div class="bloc-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+              <div>
+                <strong>1. Vous décrivez votre besoin</strong>
+                <span>Quelques informations suffisent pour évaluer la situation.</span>
+              </div>
+            </div>
+
+            <div class="bloc-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <strong>2. Nous vous rappelons</strong>
+                <span>Échange rapide et discret pour préciser l'intervention et le devis.</span>
+              </div>
+            </div>
+
+            <div class="bloc-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+              <div>
+                <strong>3. Nous intervenons</strong>
+                <span>Équipe formée et équipée, partout en Corse, à la date convenue.</span>
+              </div>
+            </div>
+
+            <div class="bloc-info bloc-info--confidentialite">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <div>
+                <strong>Discrétion garantie</strong>
+                <span>
+                  Votre demande est traitée avec la plus grande confidentialité,
+                  du premier contact jusqu'à la fin de l'intervention.
+                </span>
+              </div>
+            </div>
+
+          </aside>
+
+          <!-- ============================================================
+               COLONNE DROITE : formulaire de réservation / devis
+               Géré par js/main.js (fonction initialiserFormulaireReservation).
+
+               💡 BRANCHEMENT D'UN BACKEND PLUS TARD :
+               Ce formulaire fonctionne actuellement SANS serveur : à l'envoi,
+               js/main.js construit un email pré-rempli (lien mailto:).
+               Deux évolutions possibles, détaillées dans js/main.js :
+                 - Formspree : ajouter action="https://formspree.io/f/VOTRE_ID"
+                   et method="POST" sur cette balise <form>, puis supprimer
+                   la logique mailto dans js/main.js.
+                 - Firebase / backend maison : remplacer la logique mailto
+                   par un appel fetch() vers votre endpoint (voir le
+                   commentaire « BRANCHER UN BACKEND ICI » dans js/main.js).
+               ============================================================ -->
+          <form class="formulaire" id="formulaire-reservation" novalidate>
+            <div class="formulaire__grille">
+
+              <!-- Type de prestation : les 6 services de la carte -->
+              <div class="champ champ--large">
+                <label for="resa-service">Type de prestation <span class="obligatoire">*</span></label>
+                <select id="resa-service" name="service" required>
+                  <option value="" disabled selected>Choisissez une prestation…</option>
+                  <option value="Débarras de logements">Débarras de logements</option>
+                  <option value="Nettoyage Diogène">Nettoyage Diogène</option>
+                  <option value="Nettoyage après décès">Nettoyage après décès</option>
+                  <option value="Nettoyage après sinistre">Nettoyage après sinistre</option>
+                  <option value="Nettoyage fin de chantier">Nettoyage fin de chantier</option>
+                  <option value="Désinfection">Désinfection</option>
+                </select>
+              </div>
+
+              <div class="champ">
+                <label for="resa-nom">Nom <span class="obligatoire">*</span></label>
+                <input type="text" id="resa-nom" name="nom" required autocomplete="name" placeholder="Votre nom">
+              </div>
+
+              <div class="champ">
+                <label for="resa-telephone">Téléphone <span class="obligatoire">*</span></label>
+                <input type="tel" id="resa-telephone" name="telephone" required autocomplete="tel" placeholder="06 00 00 00 00">
+              </div>
+
+              <div class="champ champ--large">
+                <label for="resa-email">Email <span class="obligatoire">*</span></label>
+                <input type="email" id="resa-email" name="email" required autocomplete="email" placeholder="vous@exemple.fr">
+              </div>
+
+              <div class="champ">
+                <label for="resa-adresse">Adresse / commune en Corse <span class="obligatoire">*</span></label>
+                <input type="text" id="resa-adresse" name="adresse" required autocomplete="street-address" placeholder="Ex. : Ajaccio, Bastia…">
+              </div>
+
+              <div class="champ">
+                <label for="resa-date">Date souhaitée d'intervention</label>
+                <!-- La date minimale (aujourd'hui) est fixée par js/main.js -->
+                <input type="date" id="resa-date" name="date">
+              </div>
+
+              <div class="champ champ--large">
+                <label for="resa-description">Surface approximative ou description de la situation <span class="obligatoire">*</span></label>
+                <textarea id="resa-description" name="description" required placeholder="Ex. : appartement T3 d'environ 70 m², très encombré, au 2e étage sans ascenseur… Plus vous donnez de détails, plus le devis sera précis."></textarea>
+              </div>
+
+              <!-- Niveau d'urgence : deux boutons radio stylés -->
+              <div class="champ champ--large">
+                <span class="champ__legende" id="legende-urgence" style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">
+                  Niveau d'urgence <span class="obligatoire">*</span>
+                </span>
+                <div class="champ-urgence" role="radiogroup" aria-labelledby="legende-urgence">
+                  <input type="radio" id="urgence-normal" name="urgence" value="normal" checked>
+                  <label for="urgence-normal">Normal</label>
+                  <input type="radio" id="urgence-urgent" name="urgence" value="urgent">
+                  <label for="urgence-urgent">🚨 Urgent</label>
+                </div>
+              </div>
+
+              <!-- Consentement RGPD -->
+              <div class="champ champ--large champ-consentement">
+                <input type="checkbox" id="resa-consentement" name="consentement" required>
+                <label for="resa-consentement">
+                  J'accepte que mes informations soient utilisées uniquement pour
+                  traiter ma demande, en toute confidentialité. Elles ne seront
+                  ni partagées ni utilisées à d'autres fins (RGPD). <span class="obligatoire">*</span>
+                </label>
+              </div>
+
+              <div class="champ champ--large">
+                <button type="submit" class="btn btn--principal btn--bloc">Envoyer ma demande</button>
+              </div>
+
+            </div>
+
+            <!-- Message de confirmation (affiché par js/main.js après envoi) -->
+            <div class="message-confirmation" id="confirmation-reservation" role="status">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <p>
+                <strong>Merci, votre demande est prête à être envoyée.</strong><br>
+                Votre logiciel de messagerie va s'ouvrir avec votre demande
+                pré-remplie. Nous vous recontactons très rapidement pour
+                organiser l'intervention — en toute confidentialité.
+              </p>
+            </div>
+
+            <p class="note-formulaire">
+              Devis gratuit et sans engagement — réponse rapide garantie.
+            </p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       FOOTER (identique à l'accueil)
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="conteneur">
+      <div class="footer__grille">
+
+        <div>
+          <a href="index.html" class="logo" aria-label="SANPA — retour à l'accueil">
+            <span class="logo__nom">SANP<span class="texte-degrade">A</span></span>
+            <span class="logo__slogan">Services Extrêmes</span>
+          </a>
+          <p class="footer__texte">
+            Débarras, nettoyage extrême et désinfection dans toute la Corse.
+            Discrétion, réactivité et respect des lieux comme des personnes.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__titre">Navigation</h3>
+          <ul class="footer__liens">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Nos services</a></li>
+            <li><a href="reservation.html">Réservation / Devis</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__titre">Coordonnées</h3>
+          <ul class="footer__coordonnees">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>[À COMPLÉTER — téléphone]</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>[À COMPLÉTER — email]</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Corse — 2A &amp; 2B</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bas">
+        <p>© <span id="annee-courante">2026</span> SANPA — Tous droits réservés. SIRET : [À COMPLÉTER]</p>
+        <p>Mentions légales : [À COMPLÉTER]</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
