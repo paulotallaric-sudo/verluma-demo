@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+/* ============================================================
+   VERLUMA — Design system
+   Univers : « vers la lumière ». Encre profonde + papier chaud
+   + or lumen. Editorial, calme, précis.
+   ============================================================ */
+
+@theme {
+  /* --- Couleurs de marque --- */
+  --color-ink-950: #0d0926;
+  --color-ink-900: #17113f; /* couleur signature Verluma */
+  --color-ink-800: #221a54;
+  --color-ink-700: #2f2569;
+  --color-ink-600: #443a7e;
+  --color-ink-500: #5b5194;
+  --color-ink-400: #837bac;
+  --color-ink-300: #aca6c9;
+  --color-ink-200: #d0cde0;
+  --color-ink-100: #e8e6f0;
+
+  --color-paper: #f8f7f3; /* fond principal */
+  --color-sand: #efece3; /* surface secondaire */
+  --color-card: #ffffff;
+  --color-line: #e4e1d6; /* bordures */
+  --color-line-strong: #cfcaba;
+
+  --color-lumen-200: #fbe8c3;
+  --color-lumen-300: #f6d391;
+  --color-lumen-400: #eeb654;
+  --color-lumen-500: #e09c20; /* accent — décoratif uniquement */
+  --color-lumen-600: #b47a08;
+  --color-lumen-700: #8a5d05; /* accent — texte sur papier (AA) */
+
+  /* --- Couleurs fonctionnelles --- */
+  --color-sauge-600: #2f7a5c; /* succès */
+  --color-sauge-100: #e2efe8;
+  --color-garance-600: #b23d35; /* erreur */
+  --color-garance-100: #f8e8e6;
+
+  /* --- Typographie --- */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* --- Ombres (chaudes, discrètes) --- */
+  --shadow-soft: 0 1px 2px rgba(23, 17, 63, 0.05), 0 4px 16px rgba(23, 17, 63, 0.06);
+  --shadow-lift: 0 2px 4px rgba(23, 17, 63, 0.06), 0 12px 32px rgba(23, 17, 63, 0.1);
+  --shadow-deep: 0 8px 24px rgba(13, 9, 38, 0.28), 0 24px 64px rgba(13, 9, 38, 0.24);
+
+  /* --- Rayons --- */
+  --radius-card: 1rem;
+  --radius-field: 0.625rem;
+
+  /* --- Animations --- */
+  --animate-rise: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade: fade 0.4s ease-out both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* ------------------------------------------------------------
+   Base
+   ------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-lumen-300);
+  color: var(--color-ink-900);
+}
+
+/* Focus visible cohérent partout (clavier) */
+:focus-visible {
+  outline: 2px solid var(--color-ink-700);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-lumen-400);
+}
+
+/* ------------------------------------------------------------
+   Typographie éditoriale
+   ------------------------------------------------------------ */
+
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.015em;
+}
+
+.display-hero {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 420;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  font-size: clamp(2.5rem, 1.2rem + 5.2vw, 4.75rem);
+  text-wrap: balance;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96;
+  font-weight: 430;
+  letter-spacing: -0.018em;
+  line-height: 1.08;
+  font-size: clamp(2rem, 1.1rem + 3.2vw, 3.375rem);
+  text-wrap: balance;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72;
+  font-weight: 440;
+  letter-spacing: -0.014em;
+  line-height: 1.12;
+  font-size: clamp(1.625rem, 1.1rem + 1.9vw, 2.375rem);
+  text-wrap: balance;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 40;
+  font-weight: 460;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.625rem);
+  text-wrap: balance;
+}
+
+.display-num {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   Motifs et textures de marque
+   ------------------------------------------------------------ */
+
+/* Halo « lumen » pour les sections encre */
+.lumen-glow {
+  background:
+    radial-gradient(52rem 30rem at 78% -12%, rgba(238, 182, 84, 0.16), transparent 62%),
+    radial-gradient(40rem 26rem at 8% 108%, rgba(91, 81, 148, 0.28), transparent 60%),
+    var(--color-ink-900);
+}
+
+/* Trame pointillée discrète pour fonds papier */
+.dot-grid {
+  background-image: radial-gradient(rgba(23, 17, 63, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Filet éditorial sous les titres de section */
+.rule-lumen {
+  width: 3.5rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-lumen-500), var(--color-lumen-300));
+}
+
+/* ------------------------------------------------------------
+   Révélation au défilement (pilotée par Reveal.tsx)
+   ------------------------------------------------------------ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Trait de graphique animé */
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: var(--line-length, 600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.chart-line {
+  stroke-dasharray: var(--line-length, 600);
+  animation: draw-line 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .chart-line {
+    animation: none;
+    stroke-dasharray: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
