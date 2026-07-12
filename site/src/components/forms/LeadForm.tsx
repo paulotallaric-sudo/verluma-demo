@@ -9,7 +9,7 @@ type Status = "idle" | "sending" | "success" | "error";
 
 type Props = {
   /** Contexte du formulaire — adapte les champs et l'événement analytics. */
-  intent: "contact" | "entreprises";
+  intent: "contact" | "reseaux";
 };
 
 /**
@@ -32,9 +32,9 @@ export function LeadForm({ intent }: Props) {
     if (name.length < 2) found.name = "Indiquez votre nom (2 caractères minimum).";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))
       found.email = "Cette adresse e-mail ne semble pas valide.";
-    if (intent === "entreprises") {
+    if (intent === "reseaux") {
       const company = String(data.get("company") ?? "").trim();
-      if (company.length < 2) found.company = "Indiquez le nom de votre entreprise.";
+      if (company.length < 2) found.company = "Indiquez le nom de votre réseau ou groupement.";
     }
     if (message.length < 20)
       found.message = "Dites-nous en un peu plus (20 caractères minimum) — cela nous aide à bien vous répondre.";
@@ -61,7 +61,7 @@ export function LeadForm({ intent }: Props) {
     }
 
     setStatus("sending");
-    track(intent === "entreprises" ? "demande_demo_entreprise" : "message_contact", {
+    track(intent === "reseaux" ? "demande_demo_reseau" : "message_contact", {
       sujet: String(data.get("subject") ?? ""),
     });
 
@@ -82,8 +82,8 @@ export function LeadForm({ intent }: Props) {
         </svg>
         <h3 className="display-md mt-4 text-ink-900">Message bien reçu</h3>
         <p className="mx-auto mt-2 max-w-md text-[0.9375rem] leading-relaxed text-ink-600">
-          {intent === "entreprises"
-            ? "Merci ! Un membre de l'équipe vous répond sous un jour ouvré pour organiser votre démonstration. (Site de démonstration : aucun message n'a réellement été envoyé.)"
+          {intent === "reseaux"
+            ? "Merci ! Un membre de l'équipe vous répond sous un jour ouvré pour organiser votre démonstration réseau. (Site de démonstration : aucun message n'a réellement été envoyé.)"
             : "Merci ! Nous vous répondons sous un jour ouvré. (Site de démonstration : aucun message n'a réellement été envoyé.)"}
         </p>
         <Button
@@ -108,7 +108,7 @@ export function LeadForm({ intent }: Props) {
           label="Votre nom"
           name="name"
           autoComplete="name"
-          placeholder="Nathalie Combes"
+          placeholder="Laurence Pommier"
           error={errors.name}
           required
         />
@@ -117,27 +117,27 @@ export function LeadForm({ intent }: Props) {
           name="email"
           type="email"
           autoComplete="email"
-          placeholder="vous@entreprise.fr"
+          placeholder="vous@reseau.fr"
           error={errors.email}
           required
         />
       </div>
 
-      {intent === "entreprises" && (
+      {intent === "reseaux" && (
         <div className="grid gap-5 sm:grid-cols-2">
           <TextField
-            label="Entreprise"
+            label="Réseau ou groupement"
             name="company"
             autoComplete="organization"
-            placeholder="Maison Bergame"
+            placeholder="Coopérative Artibat 17"
             error={errors.company}
             required
           />
-          <SelectField label="Taille de l'équipe à former" name="teamSize" defaultValue="5-20">
-            <option value="5-20">5 à 20 personnes</option>
-            <option value="21-50">21 à 50 personnes</option>
-            <option value="51-200">51 à 200 personnes</option>
-            <option value="200+">Plus de 200 personnes</option>
+          <SelectField label="Nombre d'adhérents" name="teamSize" defaultValue="20-50">
+            <option value="20-50">20 à 50 adhérents</option>
+            <option value="51-150">51 à 150 adhérents</option>
+            <option value="151-300">151 à 300 adhérents</option>
+            <option value="300+">Plus de 300 adhérents</option>
           </SelectField>
         </div>
       )}
@@ -147,7 +147,7 @@ export function LeadForm({ intent }: Props) {
           <option value="question">Une question sur le produit</option>
           <option value="compte">Mon compte ou mon abonnement</option>
           <option value="presse">Presse et partenariats</option>
-          <option value="langues">Proposer une langue ou une voix</option>
+          <option value="metier">Demander une bibliothèque métier</option>
           <option value="autre">Autre chose</option>
         </SelectField>
       )}
@@ -156,8 +156,8 @@ export function LeadForm({ intent }: Props) {
         label="Votre message"
         name="message"
         placeholder={
-          intent === "entreprises"
-            ? "Parlez-nous de votre contexte : langues visées, échéances, objectifs…"
+          intent === "reseaux"
+            ? "Parlez-nous de votre réseau : métiers, nombre d'adhérents, échéances…"
             : "Écrivez-nous — nous lisons tout, et nous répondons vite."
         }
         error={errors.message}
@@ -177,7 +177,7 @@ export function LeadForm({ intent }: Props) {
               <span className="h-4 w-4 animate-spin rounded-full border-2 border-paper/40 border-t-paper" aria-hidden="true" />
               Envoi en cours…
             </>
-          ) : intent === "entreprises" ? (
+          ) : intent === "reseaux" ? (
             "Demander une démonstration"
           ) : (
             "Envoyer le message"

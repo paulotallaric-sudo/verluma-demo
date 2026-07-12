@@ -8,7 +8,7 @@ import { articles } from "@/lib/data/journal";
 export const metadata: Metadata = {
   title: "Le journal",
   description:
-    "Méthode, langues d'héritage, coulisses des studios : le journal de Verluma raconte comment se fabrique une plateforme d'apprentissage qui respecte votre intelligence.",
+    "Réglementation, trésorerie, bonnes pratiques de devis : le journal d'Établi parle argent et paperasse sans détour, pour les artisans du bâtiment.",
   alternates: { canonical: "/journal" },
 };
 
@@ -23,11 +23,12 @@ export default function JournalPage() {
         <Container className="max-w-3xl">
           <p className="eyebrow animate-fade text-lumen-700">Le journal</p>
           <h1 className="display-hero mt-4 animate-rise text-ink-900">
-            Les coulisses d&apos;une méthode qui ne triche pas
+            Parler d&apos;argent sans détour
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-ink-600">
-            Pas de « 7 astuces pour devenir bilingue » : nous racontons ce que nous
-            fabriquons, ce que nous mesurons, et ce que nous ratons parfois.
+            Pas de « 10 astuces pour entrepreneurs ambitieux » : la réglementation qui
+            vous concerne, la trésorerie qui vous tient debout, et ce que nous mesurons
+            chez nos utilisateurs.
           </p>
         </Container>
       </section>

@@ -9,7 +9,7 @@ import { plans, pricingFaq } from "@/lib/data/pricing";
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
-    "Découverte gratuit pour toujours, Fluide à 9,90 €/mois, Immersion avec conversation en visio à 19,90 €/mois, offre Équipes dès 5 licences. Sans engagement, essai de 14 jours.",
+    "Un plan gratuit pour démarrer, Artisan à 24 €/mois avec signature et acompte en ligne, Atelier à 49 €/mois pour les équipes, offre Réseaux dès 20 adhérents. Sans engagement, essai de 30 jours.",
   alternates: { canonical: "/tarifs" },
 };
 
@@ -35,7 +35,7 @@ function PlanCard({ plan, index }: { plan: (typeof plans)[number]; index: number
         {plan.price ? (
           <>
             <span className="display-num text-[2.75rem] leading-none text-ink-900">
-              {plan.price.monthly === 0 ? "0 €" : `${plan.price.monthly.toLocaleString("fr-FR", { minimumFractionDigits: 2 })} €`}
+              {plan.price.monthly === 0 ? "0 €" : `${plan.price.monthly.toLocaleString("fr-FR")} €`}
             </span>
             <span className="text-sm text-ink-500"> / mois</span>
           </>
@@ -105,12 +105,12 @@ export default function TarifsPage() {
         <Container className="text-center">
           <p className="eyebrow animate-fade text-lumen-700">Tarifs</p>
           <h1 className="display-hero mt-4 animate-rise text-ink-900">
-            Simple, sans engagement, sans publicité
+            Simple, sans engagement, sans surprise
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
-            Verluma est financé par ses abonnés — pas par vos données, pas par des
-            bannières entre deux exercices. Tous les plans payants commencent par
-            14 jours d&apos;essai, résiliables en deux clics.
+            Un prix d&apos;abonnement plus bas qu&apos;une heure facturée, zéro engagement,
+            et vos données exportables à tout moment. Tous les plans payants
+            commencent par 30 jours d&apos;essai, résiliables en deux clics.
           </p>
         </Container>
       </section>
@@ -123,8 +123,8 @@ export default function TarifsPage() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-ink-500">
-            −40 % pour les étudiants et demandeurs d&apos;emploi · tarif associatif pour
-            les écoles Calandreta et les ikastola · paiement sécurisé, TVA incluse.
+            −50 % la première année pour les entreprises de moins d&apos;un an ·
+            prix HT · l&apos;abonnement est une charge déductible.
           </p>
         </Container>
       </section>
@@ -141,15 +141,15 @@ export default function TarifsPage() {
             {[
               {
                 title: "Le gratuit suffit pour de vrai",
-                text: "Une leçon par jour et 20 cartes de révision, c'est un apprentissage réel — pas une vitrine bridée. Des apprenants terminent des unités entières en Découverte. Vous passez à Fluide quand la limite vous gêne, pas avant.",
+                text: "Trois devis et trois factures par mois, conformes et propres : de quoi tourner quand on démarre ou qu'on exerce en complément. Vous passez au plan Artisan le jour où la limite vous gêne — pas avant.",
               },
               {
-                title: "9,90 €, c'est le prix de 20 minutes de cours particulier",
-                text: "Un cours particulier coûte 25 à 40 € de l'heure et a lieu une fois par semaine. Verluma travaille avec vous tous les jours, pour un quart de ce prix mensuel. Les deux sont complémentaires — mais un seul tient dans toutes les vies.",
+                title: "24 €, c'est moins qu'une heure facturée",
+                text: "Une seule relance automatique qui récupère une facture oubliée, un seul acompte encaissé une semaine plus tôt, et le mois est remboursé. Nos utilisateurs déclarent en médiane 3 h 40 de paperasse en moins par semaine — comptez votre taux horaire.",
               },
               {
-                title: "Résilier prend deux clics, et vos progrès restent",
-                text: "Réglages → Abonnement → Résilier. Pas d'appel téléphonique, pas de formulaire caché, pas de « offre de la dernière chance » en six écrans. Si vous revenez dans un an, vos cartes de révision vous attendent.",
+                title: "Résilier prend deux clics, et vos documents restent",
+                text: "Réglages → Abonnement → Résilier. Vos devis, factures et règlements restent téléchargeables : la loi vous oblige à les conserver, nous vous obligeons à rien. Un export complet (CSV, PDF, FEC) part avec vous.",
               },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 70} className="rounded-(--radius-card) border border-line bg-card p-6 shadow-(--shadow-soft)">

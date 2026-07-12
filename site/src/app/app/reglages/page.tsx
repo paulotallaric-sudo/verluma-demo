@@ -74,16 +74,27 @@ export default function ReglagesPage() {
     <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-10">
       <h1 className="display-lg text-ink-900">Réglages</h1>
       <p className="mt-1 text-[0.9375rem] text-ink-600">
-        Profil, objectifs, abonnement et confidentialité.
+        Entreprise, relances, abonnement et confidentialité.
       </p>
 
       <div className="mt-8 space-y-6">
-        {/* Profil */}
-        <SectionCard title="Profil">
+        {/* Entreprise */}
+        <SectionCard title="Votre entreprise">
           <form onSubmit={handleProfileSubmit} className="grid gap-4">
+            <TextField
+              label="Raison sociale"
+              name="company"
+              defaultValue={isDemo ? demoUser.company : session.company ?? ""}
+              autoComplete="organization"
+            />
             <div className="grid gap-4 sm:grid-cols-2">
               <TextField label="Prénom" name="firstName" defaultValue={session.firstName} autoComplete="given-name" />
-              <TextField label="Nom" name="lastName" defaultValue={session.lastName} optional autoComplete="family-name" />
+              <TextField
+                label="SIRET"
+                name="siret"
+                defaultValue={isDemo ? demoUser.siret : ""}
+                hint="Affiché sur vos devis et factures."
+              />
             </div>
             <TextField
               label="Adresse e-mail"
@@ -102,27 +113,27 @@ export default function ReglagesPage() {
           </form>
         </SectionCard>
 
-        {/* Objectif */}
-        <SectionCard title="Objectif quotidien">
-          <ObjectiveSelector initial={session.dailyGoal ?? 15} />
-        </SectionCard>
-
-        {/* Notifications */}
-        <SectionCard title="Notifications">
+        {/* Relances */}
+        <SectionCard title="Relances automatiques">
           <div className="divide-y divide-line">
             <Toggle
-              label="Rappel de série"
-              help="Un rappel discret à 20 h si la leçon du jour n'est pas faite."
+              label="Relance des devis sans réponse"
+              help="Un rappel poli à J+5 puis J+12 après l'envoi."
               defaultOn
             />
             <Toggle
-              label="Révisions prêtes"
-              help="Le matin, quand vos cartes du jour sont calibrées."
+              label="Relance des factures échues"
+              help="À J+3 et J+10, puis mise en demeure proposée (jamais envoyée sans vous)."
               defaultOn
             />
             <Toggle
-              label="Nouveautés de parcours"
-              help="Nouvelles unités et nouvelles voix dans vos langues."
+              label="Alerte consultation de devis"
+              help="Notification quand un client ouvre un devis — le bon moment pour appeler."
+              defaultOn
+            />
+            <Toggle
+              label="Résumé du lundi matin"
+              help="Un e-mail : ce qui a bougé, ce qui bloque, ce qui rentre cette semaine."
             />
           </div>
         </SectionCard>
@@ -150,12 +161,12 @@ export default function ReglagesPage() {
                   <dd className="font-medium text-ink-900">{demoUser.plan.paymentMethod}</dd>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <dt className="text-ink-500">Membre depuis</dt>
+                  <dt className="text-ink-500">Client depuis</dt>
                   <dd className="font-medium text-ink-900">{demoUser.memberSince}</dd>
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt className="text-ink-500">Dernière facture</dt>
-                  <dd className="font-medium text-ink-900">79,00 € — 28 mars 2026 (payée)</dd>
+                  <dd className="font-medium text-ink-900">240,00 € HT — 8 sept. 2025 (payée)</dd>
                 </div>
               </dl>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -167,13 +178,14 @@ export default function ReglagesPage() {
             </>
           ) : (
             <div className="rounded-xl bg-sand p-4">
-              <p className="font-semibold text-ink-900">Plan Découverte · gratuit</p>
+              <p className="font-semibold text-ink-900">Plan Établi · gratuit</p>
               <p className="mt-1 text-sm leading-relaxed text-ink-600">
-                Une langue, une leçon par jour, 20 cartes de révision. Passez à
-                Fluide pour tout débloquer — 14 jours d&apos;essai, sans carte bancaire.
+                3 devis et 3 factures par mois. Passez au plan Artisan pour les
+                devis illimités, la signature avec acompte en ligne et les relances
+                automatiques — 30 jours d&apos;essai, sans carte bancaire.
               </p>
               <ButtonLink href="/tarifs" size="sm" className="mt-4">
-                Découvrir Fluide
+                Découvrir Artisan
               </ButtonLink>
             </div>
           )}
@@ -182,9 +194,9 @@ export default function ReglagesPage() {
         {/* Confidentialité */}
         <SectionCard title="Confidentialité et données">
           <p className="text-sm leading-relaxed text-ink-600">
-            Vos données d&apos;apprentissage vous appartiennent. Exportez-les en JSON
-            lisible, ou supprimez définitivement votre compte — sans nous écrire,
-            sans délai caché.
+            Vos documents et vos clients vous appartiennent. Exportez tout en un
+            clic (CSV, PDF, FEC), ou supprimez définitivement votre compte — sans
+            nous écrire, sans délai caché.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Button variant="outline" size="sm">Exporter mes données (démo)</Button>
@@ -215,42 +227,6 @@ export default function ReglagesPage() {
           </Button>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ObjectiveSelector({ initial }: { initial: number }) {
-  const [goal, setGoal] = useState(initial);
-  const options = [
-    { minutes: 5, label: "Tranquille" },
-    { minutes: 15, label: "Régulier" },
-    { minutes: 30, label: "Ambitieux" },
-  ];
-  return (
-    <div role="radiogroup" aria-label="Objectif quotidien" className="grid gap-3 sm:grid-cols-3">
-      {options.map((option) => {
-        const active = goal === option.minutes;
-        return (
-          <button
-            key={option.minutes}
-            type="button"
-            role="radio"
-            aria-checked={active}
-            onClick={() => setGoal(option.minutes)}
-            className={cn(
-              "rounded-xl border px-4 py-3.5 text-left transition-all",
-              active
-                ? "border-ink-900 bg-ink-900 text-paper"
-                : "border-line bg-card text-ink-900 hover:border-ink-300",
-            )}
-          >
-            <span className="display-num block text-2xl">{option.minutes} min</span>
-            <span className={cn("text-sm", active ? "text-ink-200" : "text-ink-500")}>
-              {option.label} par jour
-            </span>
-          </button>
-        );
-      })}
     </div>
   );
 }

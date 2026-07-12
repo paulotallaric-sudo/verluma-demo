@@ -35,7 +35,7 @@ export function LegalPage({
           ))}
         </div>
         <p className="mt-12 rounded-(--radius-card) bg-sand p-5 text-sm leading-relaxed text-ink-600">
-          Ce site est une démonstration : Verluma SAS, ses coordonnées et les
+          Ce site est une démonstration : Établi SAS, ses coordonnées et les
           traitements décrits ici sont présentés à titre d&apos;exemple réaliste et ne
           constituent pas des documents contractuels en vigueur.
         </p>

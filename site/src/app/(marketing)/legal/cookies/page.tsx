@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/marketing/LegalPage";
 
 export const metadata: Metadata = {
   title: "Cookies",
-  description: "La politique cookies la plus courte que vous lirez cette année : Verluma n'utilise aucun traceur publicitaire.",
+  description: "La politique cookies la plus courte que vous lirez cette année : Établi n'utilise aucun traceur publicitaire.",
   alternates: { canonical: "/legal/cookies" },
   robots: { index: false },
 };
@@ -18,20 +18,20 @@ export default function CookiesPage() {
         {
           title: "Pourquoi il n'y a pas de bannière",
           paragraphs: [
-            "Le site public de Verluma ne dépose aucun cookie publicitaire, aucun traceur tiers, aucun pixel de réseau social. Notre mesure d'audience est auto-hébergée et fonctionne sans cookie ni identifiant individuel. La réglementation n'exige un recueil de consentement que pour les traceurs non essentiels : nous n'en avons pas.",
+            "Le site public d'Établi ne dépose aucun cookie publicitaire, aucun traceur tiers, aucun pixel de réseau social. Notre mesure d'audience est auto-hébergée et fonctionne sans cookie ni identifiant individuel. La réglementation n'exige un recueil de consentement que pour les traceurs non essentiels : nous n'en avons pas.",
           ],
         },
         {
           title: "Ce que nous stockons quand même",
           paragraphs: [
-            "Un cookie de session strictement nécessaire lorsque vous êtes connecté·e à votre compte (authentification), et une préférence locale si vous réglez la taille du texte ou le mode de motion réduite. Ces stockages sont exemptés de consentement au sens des lignes directrices de la CNIL.",
+            "Un cookie de session strictement nécessaire lorsque vous êtes connecté·e à votre compte (authentification). Ce stockage est exempté de consentement au sens des lignes directrices de la CNIL.",
             "Sur cette version de démonstration, la « session » est simulée dans le stockage local de votre navigateur et ne quitte jamais votre machine.",
           ],
         },
         {
           title: "Comment tout effacer",
           paragraphs: [
-            "Déconnectez-vous, ou supprimez les données du site verluma.app depuis les réglages de votre navigateur. Il n'y a rien d'autre à effacer ailleurs — c'est toute l'idée.",
+            "Déconnectez-vous, ou supprimez les données du site etabli.fr depuis les réglages de votre navigateur. Il n'y a rien d'autre à effacer ailleurs — c'est toute l'idée.",
           ],
         },
       ]}

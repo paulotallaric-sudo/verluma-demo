@@ -3,7 +3,7 @@ import { LoginForm } from "./LoginForm";
 
 export const metadata: Metadata = {
   title: "Connexion",
-  description: "Connectez-vous à votre espace Verluma pour retrouver vos leçons, vos révisions et votre série.",
+  description: "Connectez-vous à votre espace Établi pour retrouver vos devis, chantiers et encaissements.",
   alternates: { canonical: "/connexion" },
   robots: { index: false },
 };

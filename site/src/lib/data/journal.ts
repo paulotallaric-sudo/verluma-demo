@@ -2,148 +2,122 @@ import type { Article } from "@/lib/types";
 
 export const articles: Article[] = [
   {
-    slug: "voix-studio-contre-synthese-vocale",
-    title: "Pourquoi nous avons enregistré 60 heures de voix en studio (et jeté la synthèse vocale)",
+    slug: "facturation-electronique-artisans",
+    title: "Facturation électronique : ce qui change vraiment pour les artisans en 2026-2027",
     excerpt:
-      "La synthèse vocale coûte cent fois moins cher et se génère en une nuit. Nous avons quand même choisi les studios, les comédiens natifs et les reprises à 23 h. Voici pourquoi votre oreille nous a donné raison.",
-    date: "2026-05-12",
+      "Non, vous n'aurez pas le droit d'envoyer un PDF par e-mail. Oui, c'est plus simple que ça en a l'air — si votre outil s'en charge. Le calendrier, les obligations, et ce qu'Établi fait à votre place.",
+    date: "2026-06-02",
     readingMinutes: 6,
-    author: { name: "Claire Vasseur", role: "Cofondatrice, direction pédagogique" },
-    tag: "Méthode",
+    author: { name: "Hélène Bréchet", role: "Cofondatrice — produit et conformité" },
+    tag: "Réglementation",
     body: [
       {
         type: "p",
-        text: "En 2024, quand nous avons commencé Verluma, la question ne se posait officiellement plus : tout le monde passait à la synthèse vocale. Les voix générées étaient devenues « indiscernables des voix humaines », nous répétait-on. Nous avons fait le test sérieusement, avec un panel de 40 apprenants et deux orthophonistes. Le résultat nous a coûté très cher — et il a défini le produit.",
+        text: "Depuis des mois, vos fournisseurs, votre banque et probablement votre beau-frère vous parlent de « facturation électronique obligatoire ». Démêlons ce qui vous concerne réellement, avec les dates qui comptent pour une entreprise artisanale.",
       },
-      {
-        type: "h2",
-        text: "Ce que l'oreille d'un débutant entend (et que la vôtre n'entend plus)",
-      },
+      { type: "h2", text: "Le calendrier, sans jargon" },
       {
         type: "p",
-        text: "Une voix de synthèse moderne est convaincante pour quelqu'un qui parle déjà la langue. Mais un débutant ne « comprend » pas une phrase : il la décompose. Il s'accroche aux attaques de consonnes, aux fins de mots avalées, à la respiration qui signale qu'une proposition se termine. Or c'est exactement là que la synthèse triche : elle lisse. Les liaisons facultatives deviennent systématiques, les hésitations disparaissent, l'intonation de question monte toujours au même endroit.",
+        text: "Septembre 2026 : toutes les entreprises, y compris la vôtre, doivent être capables de recevoir des factures électroniques. Septembre 2027 : les TPE et PME doivent aussi les émettre à ce format pour leurs clients professionnels. Entre artisan et particulier, rien ne change — mais dès qu'un client est une entreprise (promoteur, syndic, restaurant, autre artisan), la facture devra transiter par une plateforme agréée, dans un format structuré que l'administration sait lire.",
       },
+      { type: "h2", text: "Ce qui ne marchera plus" },
       {
         type: "p",
-        text: "Nos testeurs débutants faisaient 22 % d'erreurs de plus en dictée sur les phrases synthétiques que sur les mêmes phrases lues par un comédien — alors que les intermédiaires ne voyaient presque pas de différence. Autrement dit : la synthèse pénalise précisément les gens qu'une méthode doit servir en premier.",
-      },
-      {
-        type: "h2",
-        text: "Le cas des langues que personne n'enregistre",
-      },
-      {
-        type: "p",
-        text: "Pour l'occitan et le basque, le débat n'existait même pas : les modèles de synthèse y sont soit inexistants, soit entraînés sur si peu de données qu'ils produisent un accent qui n'est celui de personne. Enseigner une langue minorisée avec une voix qui n'a jamais existé nulle part, c'est passer à côté de la raison même pour laquelle on l'apprend. Miquèla, notre voix toulousaine, roule les r comme sa mère les roulait. C'est cela, la transmission.",
+        text: "Le PDF fabriqué sous Word et envoyé par e-mail ne sera plus une facture valable entre professionnels. Le carnet à souche non plus. Ce n'est pas une lubie de technocrate : le format structuré permet à l'État de pré-remplir la TVA et de lutter contre la fraude — et accessoirement, il supprime la double saisie chez votre comptable.",
       },
       {
         type: "quote",
-        text: "Une langue, ce n'est pas de l'information à transférer. C'est une manière d'habiter sa bouche.",
-        source: "Miquèla Delpech, voix occitane de Verluma",
+        text: "La bonne question n'est pas « comment je m'y mets ? » mais « est-ce que mon outil s'en occupe pour moi ? ». Si la réponse est non, changez d'outil, pas de métier.",
       },
+      { type: "h2", text: "Ce qu'Établi fait à votre place" },
       {
-        type: "h2",
-        text: "Ce que ça change pour vous, concrètement",
+        type: "p",
+        text: "Établi est raccordé à une plateforme de dématérialisation agréée. Concrètement : vous continuez à faire vos factures exactement comme aujourd'hui, et selon le destinataire, le document part au bon format vers le bon canal — plateforme pour un professionnel, e-mail et PDF pour un particulier. Les statuts de traitement (déposée, rejetée, encaissée) remontent dans votre suivi, à côté du « vu » de vos devis.",
       },
       {
         type: "p",
-        text: "Chaque phrase de Verluma existe en deux prises : vitesse naturelle et vitesse détendue — la même personne, le même souffle, pas un ralenti artificiel qui déforme les voyelles. Quand vous passez de l'une à l'autre, vous entendez la langue se déplier. Et le jour où quelqu'un vous parle dans la rue, à Osaka ou à Bayonne, il parle comme votre application. C'est le compliment qu'on nous fait le plus souvent, et celui qui justifie chaque heure de studio.",
+        text: "Notre conseil : n'attendez pas l'été 2027. Les artisans qui s'y mettent maintenant lissent le changement sur dix-huit mois tranquilles, pendant que les autres découvriront le sujet dans l'urgence, entre deux chantiers d'automne.",
       },
     ],
   },
   {
-    slug: "occitan-langue-vivante",
-    title: "L'occitan n'est pas une langue morte. Elle avait juste besoin de meilleurs outils.",
+    slug: "devis-qui-dorment",
+    title: "Pourquoi vos devis dorment 23 jours (et comment les faire signer en une semaine)",
     excerpt:
-      "On compte encore des centaines de milliers de locuteurs d'occitan, des écoles immersives pleines, et jusqu'ici aucune méthode numérique sérieuse. Retour sur la construction de notre parcours le plus symbolique.",
-    date: "2026-03-30",
-    readingMinutes: 7,
-    author: { name: "Tomàs Alberny", role: "Responsable des parcours héritage" },
-    tag: "Langues",
-    body: [
-      {
-        type: "p",
-        text: "Quand nous avons annoncé que la septième langue de Verluma serait l'occitan — avant le chinois, avant l'arabe, avant tout ce qu'un tableur de responsable produit aurait recommandé — on nous a pris pour des romantiques. Six mois plus tard, le parcours occitan affichait le meilleur taux de complétion de toute la plateforme.",
-      },
-      {
-        type: "h2",
-        text: "Un public que tout le monde voyait, que personne ne servait",
-      },
-      {
-        type: "p",
-        text: "Les études estiment que plus d'un demi-million de personnes comprennent l'occitan, et des millions d'autres en ont hérité des bribes : une grand-mère qui comptait en « un, dos, tres », des noms de villages dont on saisit soudain le sens. Les écoles Calandreta refusent du monde. Et pourtant, sur les grandes applications, l'occitan n'existe tout simplement pas — trop petit marché, trop peu de données.",
-      },
-      {
-        type: "p",
-        text: "C'est une logique d'inventaire. La nôtre est une logique de demande réelle : les apprenants de langues d'héritage sont les plus motivés qui existent. Ils ne cherchent pas un passe-temps, ils recousent quelque chose. Leur taux de rétention à 90 jours dépasse de 30 points celui des autres parcours.",
-      },
-      {
-        type: "h2",
-        text: "Construire sans corpus, ou presque",
-      },
-      {
-        type: "p",
-        text: "Pas de manuels récents, pas de corpus audio propre, des graphies concurrentes : construire un parcours d'occitan, c'est faire de l'artisanat. Nous avons choisi le languedocien comme colonne vertébrale — c'est la variante la plus centrale et la mieux documentée — avec des fenêtres régulières vers le gascon et le provençal, clairement signalées. Deux enseignants de Calandreta ont relu chaque unité ; nos comédiens viennent de Toulouse et de Rodez.",
-      },
-      {
-        type: "quote",
-        text: "Mes élèves de CM2 sont bilingues. Le problème n'a jamais été l'envie, c'était l'accès des adultes à un outil moderne.",
-        source: "Enseignante en Calandreta, relectrice du parcours",
-      },
-      {
-        type: "h2",
-        text: "Et maintenant, le basque — et après ?",
-      },
-      {
-        type: "p",
-        text: "Le parcours d'euskara a suivi la même recette, avec l'aide de deux ikastola des Pyrénées-Atlantiques. Le prochain chantier héritage est à l'étude : breton, alsacien et corse sont les trois candidats, et nos apprenants votent depuis leur tableau de bord. Une langue par an, faite correctement ou pas du tout : c'est notre rythme, et nous le tiendrons.",
-      },
-    ],
-  },
-  {
-    slug: "repetition-espacee-expliquee",
-    title: "La répétition espacée, expliquée à ceux qui ont raté leurs listes de vocabulaire",
-    excerpt:
-      "Vous n'avez pas une mauvaise mémoire : vous révisez au mauvais moment. Comment Verluma décide, mot par mot, du jour exact où il vous réinterroge — et pourquoi oublier fait partie de la méthode.",
-    date: "2026-02-10",
+      "Le devis moyen du bâtiment attend plus de trois semaines avant d'être signé — quand il l'est. Ce délai n'est pas une fatalité : c'est la somme de cinq petites frictions, toutes corrigeables.",
+    date: "2026-04-14",
     readingMinutes: 5,
-    author: { name: "Claire Vasseur", role: "Cofondatrice, direction pédagogique" },
-    tag: "Méthode",
+    author: { name: "Simon Aldebert", role: "Cofondateur — ancien conducteur de travaux" },
+    tag: "Vendre mieux",
     body: [
       {
         type: "p",
-        text: "Souvenez-vous des listes de vocabulaire du collège : vingt mots le lundi soir, interrogation le mardi matin, oubli général le vendredi. Ce n'était pas votre mémoire le problème. C'était le calendrier.",
+        text: "Sur les devis envoyés via Établi, le délai médian de signature est de 8 jours. La moyenne du secteur dépasse les trois semaines. L'écart ne vient pas d'un talent commercial particulier de nos utilisateurs : il vient de la mécanique. Voici les cinq frottements qui endorment un devis, dans l'ordre où ils se produisent.",
       },
-      {
-        type: "h2",
-        text: "L'oubli n'est pas un bug",
-      },
+      { type: "h2", text: "1. Le devis part trop tard" },
       {
         type: "p",
-        text: "Depuis Ebbinghaus (1885), on sait que la mémoire décline selon une courbe prévisible — et surtout, que chaque rappel réussi au bon moment aplatit cette courbe. Le « bon moment », c'est juste avant l'oubli : assez tard pour que le rappel demande un effort, assez tôt pour qu'il aboutisse. Cet effort-là, légèrement inconfortable, est précisément ce qui grave le mot.",
+        text: "Chaque jour entre la visite et l'envoi fait baisser la probabilité de signature : le client compare, doute, refroidit. Un devis envoyé le soir même de la visite — possible quand la bibliothèque d'ouvrages chiffre à votre place — arrive pendant que votre passage est encore le sujet du dîner.",
       },
+      { type: "h2", text: "2. Le client ne comprend pas ce qu'il lit" },
       {
         type: "p",
-        text: "Réviser trop tôt est confortable et inutile. Réviser trop tard, c'est réapprendre. Toute la science consiste à viser la fenêtre entre les deux — et cette fenêtre s'élargit à chaque succès : 1 jour, 3 jours, 1 semaine, 3 semaines, 2 mois.",
+        text: "« Fourniture et pose de menuiseries selon DTU 36.5 » ne parle qu'à vous. Le même poste, écrit « Fenêtre chambre côté rue, bois, double vitrage, pose comprise », se comprend — et ce qu'on comprend, on l'accepte. Vos libellés de bibliothèque méritent d'être écrits une fois, correctement, pour toujours.",
       },
-      {
-        type: "h2",
-        text: "Ce que Verluma fait de différent",
-      },
+      { type: "h2", text: "3. Signer demande une imprimante" },
       {
         type: "p",
-        text: "Chaque mot, chaque tournure que vous rencontrez devient une carte avec son propre calendrier. Quand vous répondez, l'algorithme note trois choses : juste ou faux, le temps d'hésitation, et le type d'erreur (sens, forme, ou simple frappe). Une hésitation longue raccourcit l'intervalle même si la réponse est juste — parce qu'une bonne réponse arrachée n'est pas un mot maîtrisé.",
+        text: "Imprimer, signer, scanner, renvoyer : en 2026, chaque étape perd un client sur dix. La signature électronique depuis le téléphone supprime les quatre. Elle a la même valeur juridique, et elle horodate tout.",
       },
+      { type: "h2", text: "4. L'acompte est une deuxième décision" },
       {
         type: "p",
-        text: "Résultat : votre session de révision quotidienne fait rarement plus de sept minutes, et elle ne contient que des cartes qui méritent d'y être. Le tableau de bord vous montre trois niveaux — fragile, stable, solide — et le chiffre qui compte vraiment : combien de mots vous pouvez mobiliser sans y penser.",
+        text: "Devis signé, puis « je vous fais un chèque pour l'acompte » — et voilà deux semaines de perdues. Quand le paiement de l'acompte est intégré au parcours de signature, la décision est une, pas deux : celui qui signe paie dans la minute.",
+      },
+      { type: "h2", text: "5. Personne ne relance" },
+      {
+        type: "p",
+        text: "Relancer soi-même est désagréable, donc on ne le fait pas. Une relance automatique à J+5 puis J+12, écrite sur un ton simple et sans reproche, double le taux de réponse. Le secret honteux : les clients sont rarement réticents — ils sont distraits.",
       },
       {
         type: "quote",
-        text: "La régularité bat l'intensité. Quinze minutes par jour battent deux heures le dimanche, et ce n'est même pas serré.",
+        text: "Un devis n'est pas un document. C'est un moment. Tout ce qui l'allonge le refroidit.",
+        source: "Simon Aldebert",
       },
+    ],
+  },
+  {
+    slug: "acompte-30-pourcent",
+    title: "L'acompte de 30 % n'est pas de la défiance. C'est de l'hygiène.",
+    excerpt:
+      "Beaucoup d'artisans n'osent pas demander d'acompte, ou le demandent sans jamais le percevoir avant d'engager les frais. Parlons trésorerie, la vraie cause de mortalité des entreprises du bâtiment.",
+    date: "2026-02-24",
+    readingMinutes: 5,
+    author: { name: "Hélène Bréchet", role: "Cofondatrice — produit et conformité" },
+    tag: "Trésorerie",
+    body: [
       {
         type: "p",
-        text: "C'est aussi pour cela que la série (votre nombre de jours consécutifs) occupe une place centrale dans l'application : non comme un gadget de gamification, mais parce qu'elle est, littéralement, la variable dont dépend tout le reste.",
+        text: "Une entreprise artisanale ne meurt presque jamais d'un manque de travail. Elle meurt d'un décalage : les fournitures se paient à 30 jours, les clients paient à 60, et entre les deux, c'est votre compte courant qui fait la banque. L'acompte n'est pas une option commerciale — c'est le correcteur de ce décalage.",
+      },
+      { type: "h2", text: "Ce que dit la loi (et ce que dit le bon sens)" },
+      {
+        type: "p",
+        text: "Rien n'interdit de demander 30 % à la commande — c'est l'usage, et jusqu'à 40 % sur des fournitures importantes commandées sur mesure. Le bon sens ajoute : l'acompte doit être encaissé avant d'engager le premier euro d'achat. Un acompte promis n'est pas un acompte ; c'est une phrase.",
+      },
+      { type: "h2", text: "Pourquoi on n'ose pas" },
+      {
+        type: "p",
+        text: "Par peur de paraître méfiant, ou de perdre le chantier. L'expérience de nos utilisateurs dit l'inverse : l'acompte intégré au parcours de signature est perçu comme un signe de professionnalisme. Les clients sérieux le paient sans discuter — et ceux qui discutent un acompte de 30 % auraient discuté la facture de 100 %.",
+      },
+      {
+        type: "quote",
+        text: "Le client qui refuse un acompte vous rend service : il se signale avant le chantier, pas après.",
+      },
+      { type: "h2", text: "La suite : situations et solde" },
+      {
+        type: "p",
+        text: "Sur les chantiers longs, l'acompte ne suffit pas. La facturation à l'avancement — 30 % à la commande, 40 % à mi-chantier, solde à réception — maintient le chantier à flot en permanence. Établi génère ces appels automatiquement aux étapes que vous définissez, et votre tableau de trésorerie vous montre, chantier par chantier, qui vous doit quoi. Vous n'avez plus à le calculer de tête sous la douche.",
       },
     ],
   },

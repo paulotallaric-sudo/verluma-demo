@@ -43,9 +43,9 @@ export function LoginForm() {
   return (
     <section className="py-16 sm:py-24">
       <Container className="max-w-md">
-        <h1 className="display-xl text-center text-ink-900">Bon retour</h1>
+        <h1 className="display-xl text-center text-ink-900">Bon retour à l&apos;atelier</h1>
         <p className="mt-3 text-center text-[0.9375rem] text-ink-600">
-          Votre série vous attend — connectez-vous pour la prolonger.
+          Vos devis n&apos;attendent que vous — et l&apos;un d&apos;eux a peut-être été signé cette nuit.
         </p>
 
         <form onSubmit={handleSubmit} noValidate className="mt-10 grid gap-5">

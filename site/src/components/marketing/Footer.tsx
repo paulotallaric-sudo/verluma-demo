@@ -6,27 +6,28 @@ const columns = [
   {
     title: "Produit",
     links: [
-      { href: "/methode", label: "La méthode" },
-      { href: "/langues", label: "Les 10 langues" },
+      { href: "/produit", label: "Fonctionnalités" },
       { href: "/tarifs", label: "Tarifs" },
-      { href: "/demo", label: "Essayer une leçon" },
+      { href: "/demo", label: "Créer un devis d'essai" },
+      { href: "/journal/facturation-electronique-artisans", label: "Facturation électronique" },
     ],
   },
   {
-    title: "Verluma",
+    title: "Métiers",
+    links: [
+      { href: "/metiers/menuisier", label: "Menuisiers" },
+      { href: "/metiers/electricien", label: "Électriciens" },
+      { href: "/metiers/plombier", label: "Plombiers-chauffagistes" },
+      { href: "/metiers", label: "Tous les métiers" },
+    ],
+  },
+  {
+    title: "Établi",
     links: [
       { href: "/a-propos", label: "Manifeste" },
       { href: "/journal", label: "Journal" },
-      { href: "/entreprises", label: "Offre entreprises" },
+      { href: "/reseaux", label: "Offre Réseaux" },
       { href: "/contact", label: "Contact" },
-    ],
-  },
-  {
-    title: "Langues d'héritage",
-    links: [
-      { href: "/langues/occitan", label: "Apprendre l'occitan" },
-      { href: "/langues/basque", label: "Apprendre le basque" },
-      { href: "/journal/occitan-langue-vivante", label: "Pourquoi ces langues" },
     ],
   },
   {
@@ -48,11 +49,11 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo tone="paper" />
             <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-300">
-              La méthode d&apos;apprentissage des langues pour adultes exigeants.
-              Voix enregistrées en studio, répétition espacée, quinze minutes par jour.
+              Le back-office des artisans du bâtiment : devis en 10 minutes,
+              acomptes encaissés en ligne, chantiers et trésorerie suivis.
             </p>
             <p className="mt-6 text-sm text-ink-400">
-              Fait à Toulouse. <span aria-hidden="true">◆</span> Hébergé dans l&apos;Union européenne.
+              Fait à Nantes. <span aria-hidden="true">◆</span> Données hébergées dans l&apos;Union européenne.
             </p>
           </div>
 
@@ -78,7 +79,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-ink-700/60 pt-6 text-sm text-ink-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Verluma SAS — Tous droits réservés.</p>
+          <p>© 2026 Établi SAS — Tous droits réservés.</p>
           <p>
             Site de démonstration : les témoignages et chiffres présentés sont fictifs.
           </p>

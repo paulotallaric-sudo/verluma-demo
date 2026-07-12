@@ -7,7 +7,7 @@ import { LeadForm } from "@/components/forms/LeadForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Une question sur Verluma, votre compte, la presse ou une langue à proposer ? Écrivez-nous — réponse humaine sous un jour ouvré.",
+    "Une question sur Établi, votre compte, la presse ou votre métier ? Écrivez-nous — réponse humaine sous 4 heures ouvrées, par des gens qui connaissent le bâtiment.",
   alternates: { canonical: "/contact" },
 };
 
@@ -22,15 +22,16 @@ export default function ContactPage() {
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-ink-600">
             Pas de chatbot qui tourne en rond : votre message arrive dans la boîte
-            de l&apos;équipe, à Toulouse, et quelqu&apos;un vous répond sous un jour ouvré.
+            de l&apos;équipe, à Nantes, et quelqu&apos;un qui connaît le bâtiment vous
+            répond sous 4 heures ouvrées.
           </p>
           <dl className="mt-10 space-y-6 text-[0.9375rem]">
             <div>
-              <dt className="font-semibold text-ink-900">Vous êtes une entreprise ?</dt>
+              <dt className="font-semibold text-ink-900">Vous êtes un réseau ou un groupement ?</dt>
               <dd className="mt-1 text-ink-600">
                 Passez plutôt par la{" "}
-                <Link href="/entreprises#contact" className="font-medium text-ink-900 underline decoration-lumen-500 decoration-2 underline-offset-2">
-                  demande de démonstration Équipes
+                <Link href="/reseaux#contact" className="font-medium text-ink-900 underline decoration-lumen-500 decoration-2 underline-offset-2">
+                  demande de démonstration Réseaux
                 </Link>{" "}
                 — vous gagnerez un aller-retour.
               </dd>
@@ -43,10 +44,11 @@ export default function ContactPage() {
               </dd>
             </div>
             <div>
-              <dt className="font-semibold text-ink-900">Vous parlez une langue que nous devrions enregistrer ?</dt>
+              <dt className="font-semibold text-ink-900">Votre métier n&apos;a pas encore sa bibliothèque ?</dt>
               <dd className="mt-1 text-ink-600">
-                Comédiens, enseignants, locuteurs natifs : nous construisons chaque
-                parcours avec le pays. Dites-nous qui vous êtes.
+                Plaquiste, serrurier, cuisiniste : nous construisons chaque
+                bibliothèque avec des artisans du métier. Dites-nous qui vous êtes —
+                les pilotes sont équipés gratuitement un an.
               </dd>
             </div>
           </dl>

@@ -8,10 +8,10 @@ import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
 const navigation = [
-  { href: "/methode", label: "Méthode" },
-  { href: "/langues", label: "Langues" },
+  { href: "/produit", label: "Le produit" },
+  { href: "/metiers", label: "Métiers" },
   { href: "/tarifs", label: "Tarifs" },
-  { href: "/entreprises", label: "Entreprises" },
+  { href: "/reseaux", label: "Réseaux" },
   { href: "/journal", label: "Journal" },
 ];
 
@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
-        <Link href="/" aria-label="Verluma — accueil" className="shrink-0">
+        <Link href="/" aria-label="Établi — accueil" className="shrink-0">
           <Logo />
         </Link>
 
@@ -111,14 +111,14 @@ export function Header() {
         </nav>
         <div className="mt-6 flex flex-col gap-3">
           <ButtonLink href="/inscription" size="lg">
-            Commencer gratuitement
+            Essayer gratuitement
           </ButtonLink>
           <ButtonLink href="/connexion" variant="outline" size="lg">
             Connexion
           </ButtonLink>
         </div>
         <p className="mt-8 text-sm text-ink-500">
-          10 langues · voix studio · 15 minutes par jour
+          Devis · factures · chantiers · trésorerie — pour les artisans
         </p>
       </div>
     </header>

@@ -1,36 +1,38 @@
 @import "tailwindcss";
 
 /* ============================================================
-   VERLUMA — Design system
-   Univers : « vers la lumière ». Encre profonde + papier chaud
-   + or lumen. Editorial, calme, précis.
+   ÉTABLI — Design system
+   Univers : l'atelier. Carbone chaud + plâtre + cuivre.
+   Robuste, net, chaleureux — le sérieux du geste bien fait.
+   Tokens sémantiques : ink = texte/carbone, paper = fond plâtre,
+   lumen = accent cuivre, sauge = succès, garance = erreur.
    ============================================================ */
 
 @theme {
   /* --- Couleurs de marque --- */
-  --color-ink-950: #0d0926;
-  --color-ink-900: #17113f; /* couleur signature Verluma */
-  --color-ink-800: #221a54;
-  --color-ink-700: #2f2569;
-  --color-ink-600: #443a7e;
-  --color-ink-500: #5b5194;
-  --color-ink-400: #837bac;
-  --color-ink-300: #aca6c9;
-  --color-ink-200: #d0cde0;
-  --color-ink-100: #e8e6f0;
+  --color-ink-950: #171512;
+  --color-ink-900: #23201a; /* carbone — couleur signature Établi */
+  --color-ink-800: #322e26;
+  --color-ink-700: #443e33;
+  --color-ink-600: #5a5344;
+  --color-ink-500: #6f6857;
+  --color-ink-400: #948c7a;
+  --color-ink-300: #b5ae9e;
+  --color-ink-200: #d6d1c4;
+  --color-ink-100: #eae7dd;
 
-  --color-paper: #f8f7f3; /* fond principal */
-  --color-sand: #efece3; /* surface secondaire */
+  --color-paper: #f7f5f0; /* plâtre — fond principal */
+  --color-sand: #ede9e0; /* surface secondaire */
   --color-card: #ffffff;
-  --color-line: #e4e1d6; /* bordures */
-  --color-line-strong: #cfcaba;
+  --color-line: #e2ddd1; /* bordures */
+  --color-line-strong: #cbc4b2;
 
-  --color-lumen-200: #fbe8c3;
-  --color-lumen-300: #f6d391;
-  --color-lumen-400: #eeb654;
-  --color-lumen-500: #e09c20; /* accent — décoratif uniquement */
-  --color-lumen-600: #b47a08;
-  --color-lumen-700: #8a5d05; /* accent — texte sur papier (AA) */
+  --color-lumen-200: #f6e2cc;
+  --color-lumen-300: #ecc49a;
+  --color-lumen-400: #de9f5d;
+  --color-lumen-500: #c97e2d; /* cuivre — décoratif uniquement */
+  --color-lumen-600: #a5601b;
+  --color-lumen-700: #7e4812; /* cuivre — texte sur papier (AA) */
 
   /* --- Couleurs fonctionnelles --- */
   --color-sauge-600: #2f7a5c; /* succès */
@@ -39,13 +41,13 @@
   --color-garance-100: #f8e8e6;
 
   /* --- Typographie --- */
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-display: var(--font-display-src), "Arial Black", sans-serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
 
   /* --- Ombres (chaudes, discrètes) --- */
-  --shadow-soft: 0 1px 2px rgba(23, 17, 63, 0.05), 0 4px 16px rgba(23, 17, 63, 0.06);
-  --shadow-lift: 0 2px 4px rgba(23, 17, 63, 0.06), 0 12px 32px rgba(23, 17, 63, 0.1);
-  --shadow-deep: 0 8px 24px rgba(13, 9, 38, 0.28), 0 24px 64px rgba(13, 9, 38, 0.24);
+  --shadow-soft: 0 1px 2px rgba(35, 32, 26, 0.05), 0 4px 16px rgba(35, 32, 26, 0.07);
+  --shadow-lift: 0 2px 4px rgba(35, 32, 26, 0.06), 0 12px 32px rgba(35, 32, 26, 0.11);
+  --shadow-deep: 0 8px 24px rgba(23, 21, 18, 0.3), 0 24px 64px rgba(23, 21, 18, 0.25);
 
   /* --- Rayons --- */
   --radius-card: 1rem;
@@ -115,13 +117,14 @@ body {
 .font-display {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 72;
+  font-weight: 620;
   letter-spacing: -0.015em;
 }
 
 .display-hero {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144;
-  font-weight: 420;
+  font-variation-settings: "opsz" 96;
+  font-weight: 640;
   letter-spacing: -0.02em;
   line-height: 1.04;
   font-size: clamp(2.5rem, 1.2rem + 5.2vw, 4.75rem);
@@ -131,7 +134,7 @@ body {
 .display-xl {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 96;
-  font-weight: 430;
+  font-weight: 620;
   letter-spacing: -0.018em;
   line-height: 1.08;
   font-size: clamp(2rem, 1.1rem + 3.2vw, 3.375rem);
@@ -141,7 +144,7 @@ body {
 .display-lg {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 72;
-  font-weight: 440;
+  font-weight: 600;
   letter-spacing: -0.014em;
   line-height: 1.12;
   font-size: clamp(1.625rem, 1.1rem + 1.9vw, 2.375rem);
@@ -151,7 +154,7 @@ body {
 .display-md {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 40;
-  font-weight: 460;
+  font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.2;
   font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.625rem);
@@ -161,7 +164,7 @@ body {
 .display-num {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 72;
-  font-weight: 400;
+  font-weight: 560;
   letter-spacing: -0.02em;
   font-variant-numeric: lining-nums;
 }
@@ -177,17 +180,17 @@ body {
    Motifs et textures de marque
    ------------------------------------------------------------ */
 
-/* Halo « lumen » pour les sections encre */
+/* Halo « forge » pour les sections carbone */
 .lumen-glow {
   background:
-    radial-gradient(52rem 30rem at 78% -12%, rgba(238, 182, 84, 0.16), transparent 62%),
-    radial-gradient(40rem 26rem at 8% 108%, rgba(91, 81, 148, 0.28), transparent 60%),
+    radial-gradient(52rem 30rem at 78% -12%, rgba(222, 159, 93, 0.18), transparent 62%),
+    radial-gradient(40rem 26rem at 8% 108%, rgba(111, 104, 87, 0.32), transparent 60%),
     var(--color-ink-900);
 }
 
 /* Trame pointillée discrète pour fonds papier */
 .dot-grid {
-  background-image: radial-gradient(rgba(23, 17, 63, 0.09) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(35, 32, 26, 0.1) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 

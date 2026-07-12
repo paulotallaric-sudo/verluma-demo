@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/marketing/LegalPage";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
-  description: "Comment Verluma collecte, utilise et protège vos données personnelles, conformément au RGPD.",
+  description: "Comment Établi collecte, utilise et protège vos données et celles de vos clients, conformément au RGPD.",
   alternates: { canonical: "/legal/confidentialite" },
   robots: { index: false },
 };
@@ -13,39 +13,39 @@ export default function ConfidentialitePage() {
     <LegalPage
       title="Politique de confidentialité"
       updated="12 juillet 2026"
-      intro="Le principe qui gouverne tout le reste : Verluma est financé par ses abonnés, pas par vos données. Nous collectons le minimum nécessaire au fonctionnement du service, nous ne vendons rien à personne, et vous gardez la main."
+      intro="Le principe qui gouverne tout le reste : vos données de gestion — et celles de vos clients — servent à faire tourner votre entreprise, pas la nôtre. Nous ne vendons rien à personne, et vous repartez avec tout, quand vous voulez."
       sections={[
         {
           title: "Données collectées",
           paragraphs: [
-            "Données de compte : prénom, adresse e-mail, mot de passe (haché avec Argon2id — nous ne le connaissons jamais en clair).",
-            "Données d'apprentissage : langues étudiées, réponses aux exercices, calendrier de révision, temps de pratique. Elles servent exclusivement à calibrer vos révisions et à afficher votre progression.",
-            "Données de facturation pour les abonnés : traitées par notre prestataire de paiement (Stripe) ; Verluma ne stocke jamais votre numéro de carte.",
+            "Données de compte : identité, entreprise, SIRET, e-mail, mot de passe (haché avec Argon2id — nous ne le connaissons jamais en clair).",
+            "Données de gestion : vos clients, devis, factures, ouvrages, règlements. Vous en êtes le responsable de traitement ; Établi agit comme sous-traitant au sens du RGPD, et un accord de sous-traitance (DPA) est intégré aux CGV.",
+            "Données de paiement pour l'encaissement en ligne : traitées par notre prestataire agréé (Stripe) ; Établi ne stocke jamais les numéros de carte de vos clients.",
           ],
         },
         {
           title: "Ce que nous ne faisons pas",
           paragraphs: [
-            "Pas de publicité ciblée, pas de revente ni de partage de données à des fins commerciales, pas de traceurs tiers sur le site public. Notre mesure d'audience (auto-hébergée, sans cookie) ne permet pas de vous identifier.",
+            "Pas de publicité, pas de revente ni de partage de données à des fins commerciales, pas de démarchage de vos clients — jamais. Notre mesure d'audience sur le site public est auto-hébergée, sans cookie, et ne permet pas de vous identifier.",
           ],
         },
         {
           title: "Base légale et durées de conservation",
           paragraphs: [
-            "Le traitement des données de compte et d'apprentissage repose sur l'exécution du contrat (CGV). Les données de facturation sont conservées 10 ans au titre des obligations comptables. Un compte inactif depuis 3 ans est supprimé après deux relances par e-mail.",
+            "Le traitement repose sur l'exécution du contrat (CGV). Vos documents comptables sont conservés pendant toute la vie du compte ; après résiliation, ils restent exportables 12 mois puis sont archivés de manière chiffrée pendant les durées légales avant suppression.",
           ],
         },
         {
           title: "Vos droits",
           paragraphs: [
-            "Vous disposez des droits d'accès, de rectification, d'effacement, de portabilité et d'opposition. L'export complet de vos données (format JSON lisible) et la suppression du compte sont disponibles directement dans Réglages → Confidentialité, sans nous écrire.",
-            "Pour toute autre demande : rgpd@verluma.app. Vous pouvez également saisir la CNIL (cnil.fr).",
+            "Accès, rectification, effacement, portabilité, opposition : l'export complet (CSV, PDF, FEC) et la suppression du compte sont disponibles directement dans Réglages → Confidentialité, sans nous écrire.",
+            "Pour toute autre demande : rgpd@etabli.fr. Vous pouvez également saisir la CNIL (cnil.fr).",
           ],
         },
         {
           title: "Hébergement et sécurité",
           paragraphs: [
-            "Toutes les données sont hébergées dans l'Union européenne. Les échanges sont chiffrés (TLS 1.3), les sauvegardes quotidiennes sont chiffrées au repos, et l'accès interne aux données de production est restreint, journalisé et soumis à double authentification.",
+            "Toutes les données sont hébergées dans l'Union européenne. Chiffrement TLS 1.3 en transit et AES-256 au repos, sauvegardes quotidiennes chiffrées, accès interne restreint, journalisé et soumis à double authentification.",
           ],
         },
       ]}

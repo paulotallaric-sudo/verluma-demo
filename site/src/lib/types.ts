@@ -1,25 +1,23 @@
-/* Types partagés de l'univers Verluma. */
+/* Types partagés de l'univers Établi. */
 
-export type Language = {
+export type Metier = {
   slug: string;
-  /** Nom précédé de l'article contracté : « l'anglais », « le basque »… */
-  withArticle: string;
+  /** Nom du métier : « Menuisier-agenceur ». */
   name: string;
-  nativeName: string;
-  /** Code court affiché dans la pastille (2 lettres, graphie native). */
+  /** Pluriel pour les titres : « menuisiers-agenceurs ». */
+  plural: string;
+  /** Code court affiché dans la pastille (2 lettres). */
   chip: string;
-  /** Teinte d'identité de la langue (fond de pastille, pastel). */
+  /** Teinte d'identité du métier (fond de pastille, pastel). */
   hue: string;
   /** Teinte de texte associée (contrastée AA sur `hue`). */
   hueText: string;
   tagline: string;
   description: string;
-  learners: number;
-  units: number;
-  hoursOfAudio: number;
-  voices: string[];
-  sampleSentence: { original: string; translation: string };
-  heritage?: boolean;
+  users: number;
+  /** Exemples de lignes de devis pré-remplies dans la bibliothèque métier. */
+  libraryExamples: string[];
+  painPoint: string;
 };
 
 export type Plan = {
@@ -37,9 +35,8 @@ export type Plan = {
 
 export type Testimonial = {
   name: string;
-  age?: number;
+  metier: string;
   city: string;
-  language: string;
   quote: string;
   detail?: string;
 };
@@ -60,44 +57,46 @@ export type ArticleBlock =
   | { type: "h2"; text: string }
   | { type: "quote"; text: string; source?: string };
 
-export type Exercise =
-  | {
-      type: "choice";
-      prompt: string;
-      sentence: string;
-      options: string[];
-      answer: number;
-      note?: string;
-    }
-  | {
-      type: "arrange";
-      prompt: string;
-      sentence: string;
-      words: string[];
-      answer: string;
-      note?: string;
-    };
+export type DevisStatus = "brouillon" | "envoyé" | "vu" | "signé" | "refusé";
 
-export type Lesson = {
+export type Devis = {
   id: string;
-  language: string;
-  unit: string;
-  title: string;
-  exercises: Exercise[];
+  ref: string;
+  client: string;
+  label: string;
+  amountHT: number;
+  status: DevisStatus;
+  date: string;
+  /** Détail temporel utile à l'écran : « vu il y a 2 j », etc. */
+  statusDetail: string;
 };
 
-export type ReviewCard = {
+export type Chantier = {
   id: string;
-  front: string;
-  back: string;
-  language: string;
-  interval: string;
-  strength: "fragile" | "stable" | "solide";
+  label: string;
+  client: string;
+  city: string;
+  amountHT: number;
+  /** Avancement 0–100. */
+  progress: number;
+  stage: string;
+  dueLabel: string;
+  alert?: string;
 };
 
 export type ActivityEvent = {
   date: string;
   label: string;
   detail: string;
-  kind: "lesson" | "review" | "milestone" | "streak";
+  kind: "devis" | "paiement" | "chantier" | "signature";
+};
+
+/** Ligne d'un devis dans le créateur interactif. */
+export type QuoteLine = {
+  id: number;
+  label: string;
+  quantity: number;
+  unit: string;
+  unitPrice: number;
+  vat: 10 | 20 | 5.5;
 };

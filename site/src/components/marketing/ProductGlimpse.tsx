@@ -1,86 +1,75 @@
 import { cn } from "@/lib/cn";
 
 /**
- * Composition « produit » du hero : trois cartes réelles de l'application,
- * rendues en HTML/CSS (pas d'images), légèrement superposées.
+ * Composition « produit » du hero : un devis en cours de signature,
+ * la notification d'acompte encaissé et le suivi de consultation —
+ * rendus en HTML/CSS (pas d'images), légèrement superposés.
  */
 export function ProductGlimpse({ className }: { className?: string }) {
   return (
     <div className={cn("relative", className)} aria-hidden="true">
-      {/* Carte exercice */}
+      {/* Carte devis */}
       <div className="relative z-10 w-full max-w-105 rounded-2xl border border-line bg-card p-5 shadow-(--shadow-lift)">
         <div className="flex items-center justify-between">
           <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink-600">
             <span
               className="flex h-6 w-6 items-center justify-center rounded-full text-[0.7rem] font-bold"
-              style={{ backgroundColor: "#F9E9CC", color: "#7A5410" }}
+              style={{ backgroundColor: "#F1E4D2", color: "#7A4E14" }}
             >
-              Oc
+              Me
             </span>
-            Occitan · Unité 1
+            Devis DE-2026-047
           </span>
-          <span className="text-sm font-medium text-ink-400">3 / 6</span>
+          <span className="rounded-full bg-sauge-100 px-2.5 py-0.5 text-xs font-bold text-sauge-600">
+            Vu hier, 21 h 12
+          </span>
         </div>
-        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-sand">
-          <div className="h-full w-1/2 rounded-full bg-lumen-500" />
-        </div>
-        <p className="mt-5 text-sm font-medium text-ink-500">Que veut dire :</p>
-        <p className="display-md mt-1 text-ink-900">« Cossí vas ? »</p>
-        <div className="mt-4 grid gap-2">
-          {["Où vas-tu ?", "Comment vas-tu ?", "Qui es-tu ?"].map((option, i) => (
-            <div
-              key={option}
-              className={cn(
-                "rounded-xl border px-4 py-2.5 text-[0.9375rem] font-medium",
-                i === 1
-                  ? "border-sauge-600 bg-sauge-100 text-sauge-600"
-                  : "border-line bg-card text-ink-700",
-              )}
-            >
-              {option}
-              {i === 1 && <span className="float-right">✓</span>}
+        <p className="mt-4 text-sm font-medium text-ink-500">M. et Mme Ferrand — Bordeaux</p>
+        <p className="display-md mt-0.5 text-ink-900">Dressing chambre principale</p>
+        <div className="mt-4 space-y-2 border-t border-line pt-3 text-sm">
+          {[
+            ["Façade coulissante 3 vantaux · 6,2 m²", "2 604 €"],
+            ["Aménagement tiroirs et penderie · 4,4 ml", "814 €"],
+            ["Dépose et évacuation existant", "380 €"],
+          ].map(([label, price]) => (
+            <div key={label} className="flex items-baseline justify-between gap-3">
+              <span className="text-ink-700">{label}</span>
+              <span className="font-medium text-ink-900">{price}</span>
             </div>
           ))}
+          <div className="flex items-baseline justify-between gap-3 border-t border-line pt-2">
+            <span className="font-semibold text-ink-900">Total TTC</span>
+            <span className="display-num text-xl text-ink-900">7 524 €</span>
+          </div>
+        </div>
+        <div className="mt-4 rounded-xl bg-ink-900 px-4 py-2.5 text-center text-sm font-semibold text-paper">
+          Signer et payer l&apos;acompte de 30 %
         </div>
       </div>
 
-      {/* Carte série */}
+      {/* Carte acompte encaissé */}
       <div className="absolute -top-8 right-0 z-20 hidden rotate-2 rounded-2xl border border-line bg-card px-5 py-4 shadow-(--shadow-soft) sm:block">
-        <p className="text-sm font-medium text-ink-500">Série en cours</p>
-        <p className="display-num mt-0.5 text-3xl text-ink-900">
-          23 <span className="text-base font-sans font-medium text-ink-500">jours</span>
+        <p className="flex items-center gap-2 text-sm font-semibold text-sauge-600">
+          <svg viewBox="0 0 16 16" className="h-4 w-4" aria-hidden="true">
+            <circle cx="8" cy="8" r="7.2" fill="currentColor" opacity="0.15" />
+            <path d="m4.8 8.4 2.2 2.2 4.4-5" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Acompte encaissé
         </p>
-        <div className="mt-2 flex gap-1">
-          {[1, 1, 1, 1, 1, 1, 0].map((done, i) => (
-            <span
-              key={i}
-              className={cn(
-                "h-2 w-4 rounded-full",
-                done ? "bg-lumen-400" : "bg-sand",
-              )}
-            />
-          ))}
-        </div>
+        <p className="display-num mt-0.5 text-3xl text-ink-900">2 257 €</p>
+        <p className="mt-0.5 text-xs text-ink-500">Mme Lacoste · carte bancaire</p>
       </div>
 
-      {/* Carte voix */}
+      {/* Carte signature */}
       <div className="absolute -bottom-9 -left-3 z-20 hidden -rotate-2 items-center gap-3 rounded-2xl border border-line bg-ink-900 px-5 py-4 shadow-(--shadow-lift) sm:flex">
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lumen-400">
           <svg viewBox="0 0 16 16" className="h-4 w-4" aria-hidden="true">
-            <path d="M4 3.5v9l8-4.5-8-4.5Z" fill="#17113F" />
+            <path d="M2.5 11.5c2-.4 2.6-3.8 4-3.5 1.2.3.2 3 1.5 3.2 1.1.2 1.6-1.6 2.6-1.6.8 0 .9 1 1.9 1 .5 0 .8-.2 1-.4" stroke="#23201A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
           </svg>
         </span>
         <span>
-          <span className="block text-sm font-semibold text-paper">Miquèla — Toulouse</span>
-          <span className="mt-0.5 flex items-end gap-0.5" aria-hidden="true">
-            {[5, 9, 14, 8, 12, 6, 10, 13, 7, 4, 9, 11].map((h, i) => (
-              <span
-                key={i}
-                className="w-1 rounded-full bg-ink-400"
-                style={{ height: `${h}px` }}
-              />
-            ))}
-          </span>
+          <span className="block text-sm font-semibold text-paper">Signé électroniquement</span>
+          <span className="block text-xs text-ink-300">Fenêtres Lacoste · en 2 jours, sans imprimante</span>
         </span>
       </div>
     </div>

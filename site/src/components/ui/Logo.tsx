@@ -1,8 +1,8 @@
 import { cn } from "@/lib/cn";
 
 /**
- * Sigle Verluma : un « V » dont s'élève un point de lumière — le lumen.
- * Dessiné en SVG pur, monochrome, décliné encre ou papier.
+ * Sigle Établi : un plan de travail stylisé — le plateau, deux pieds,
+ * et le clou de cuivre. Dessiné en SVG pur, décliné carbone ou plâtre.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -12,15 +12,15 @@ export function LogoMark({ className }: { className?: string }) {
       aria-hidden="true"
       className={cn("h-8 w-8", className)}
     >
-      <rect width="32" height="32" rx="9" className="fill-ink-900" />
+      <rect width="32" height="32" rx="8" className="fill-ink-900" />
       <path
-        d="M9 12.5 16 25l7-12.5"
-        stroke="#F8F7F3"
+        d="M7 12h18M10 12v9M22 12v9"
+        stroke="#F7F5F0"
         strokeWidth="2.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="16" cy="8.4" r="2.5" className="fill-lumen-400" />
+      <circle cx="25" cy="8" r="2.3" className="fill-lumen-400" />
     </svg>
   );
 }
@@ -35,12 +35,12 @@ export function Wordmark({
   return (
     <span
       className={cn(
-        "font-display text-[1.35rem] font-medium tracking-tight",
+        "font-display text-[1.3rem] tracking-tight",
         tone === "ink" ? "text-ink-900" : "text-paper",
         className,
       )}
     >
-      verluma
+      établi
     </span>
   );
 }

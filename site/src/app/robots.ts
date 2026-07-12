@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/app/", "/connexion", "/legal/"],
       },
     ],
-    sitemap: "https://verluma.app/sitemap.xml",
+    sitemap: "https://etabli.fr/sitemap.xml",
   };
 }

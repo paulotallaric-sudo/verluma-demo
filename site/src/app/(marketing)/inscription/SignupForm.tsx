@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { TextField } from "@/components/ui/Field";
 import { useAuth } from "@/lib/auth";
-import { getLanguage } from "@/lib/data/languages";
+import { getMetier } from "@/lib/data/metiers";
 import { plans } from "@/lib/data/pricing";
 
 export function SignupForm() {
@@ -16,7 +16,7 @@ export function SignupForm() {
   const { signup } = useAuth();
 
   const wantedPlan = plans.find((p) => p.id === searchParams.get("plan"));
-  const wantedLanguage = getLanguage(searchParams.get("langue") ?? "");
+  const wantedMetier = getMetier(searchParams.get("metier") ?? "");
 
   const [values, setValues] = useState({ firstName: "", email: "", password: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -36,26 +36,26 @@ export function SignupForm() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email.trim()))
       found.email = "Cette adresse e-mail ne semble pas valide.";
     if (values.password.length < 8)
-      found.password = "8 caractères minimum — c'est votre mémoire de la langue que vous protégez.";
+      found.password = "8 caractères minimum — ce sont vos devis et vos clients que vous protégez.";
     setErrors(found);
     if (Object.keys(found).length > 0) return;
 
     setSubmitting(true);
     await new Promise((r) => setTimeout(r, 450));
     signup(values);
-    router.push(wantedLanguage ? `/app/bienvenue?langue=${wantedLanguage.slug}` : "/app/bienvenue");
+    router.push(wantedMetier ? `/app/bienvenue?metier=${wantedMetier.slug}` : "/app/bienvenue");
   }
 
   return (
     <section className="py-16 sm:py-24">
       <Container className="max-w-md">
         <h1 className="display-xl text-center text-ink-900">
-          {wantedLanguage ? `Commencer ${wantedLanguage.withArticle}` : "Créer votre compte"}
+          {wantedMetier ? `Établi pour les ${wantedMetier.plural}` : "Créer votre compte"}
         </h1>
         <p className="mt-3 text-center text-[0.9375rem] leading-relaxed text-ink-600">
           {wantedPlan
-            ? `Plan ${wantedPlan.name} — vos 14 jours d'essai commencent après l'onboarding, sans carte bancaire aujourd'hui.`
-            : "Gratuit, sans carte bancaire. Votre première leçon est à deux minutes d'ici."}
+            ? `Plan ${wantedPlan.name} — vos 30 jours d'essai commencent après l'onboarding, sans carte bancaire aujourd'hui.`
+            : "Gratuit, sans carte bancaire. Votre premier devis est à deux minutes d'ici."}
         </p>
 
         <form onSubmit={handleSubmit} noValidate className="mt-10 grid gap-5">
@@ -66,7 +66,7 @@ export function SignupForm() {
             value={values.firstName}
             onChange={set("firstName")}
             error={errors.firstName}
-            placeholder="Sylvie"
+            placeholder="Denis"
             required
           />
           <TextField

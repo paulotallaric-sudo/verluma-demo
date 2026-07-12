@@ -5,7 +5,7 @@ import { SignupForm } from "./SignupForm";
 export const metadata: Metadata = {
   title: "Inscription",
   description:
-    "Créez votre compte Verluma gratuit : une langue, une leçon par jour, les mêmes voix studio que les abonnés. Sans carte bancaire.",
+    "Créez votre compte Établi gratuit : 3 devis et 3 factures par mois, conformes et propres. Essai Artisan de 30 jours inclus, sans carte bancaire.",
   alternates: { canonical: "/inscription" },
 };
 

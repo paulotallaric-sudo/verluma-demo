@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { fraunces, inter } from "@/lib/fonts";
+import { bricolage, inter } from "@/lib/fonts";
 import { AuthProvider } from "@/lib/auth";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://verluma.app"),
+  metadataBase: new URL("https://etabli.fr"),
   title: {
-    default: "Verluma — Parlez une langue, vraiment",
-    template: "%s — Verluma",
+    default: "Établi — Le back-office des artisans du bâtiment",
+    template: "%s — Établi",
   },
   description:
-    "La méthode d'apprentissage des langues pour adultes exigeants : voix enregistrées en studio, répétition espacée, 15 minutes par jour. 10 langues, dont l'occitan et le basque.",
-  applicationName: "Verluma",
+    "Devis en 10 minutes, signature et acompte en ligne, chantiers et trésorerie suivis. Le logiciel des artisans du bâtiment qui rend les soirées à leurs propriétaires.",
+  applicationName: "Établi",
   openGraph: {
-    siteName: "Verluma",
+    siteName: "Établi",
     locale: "fr_FR",
     type: "website",
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#17113F",
+  themeColor: "#23201A",
   width: "device-width",
   initialScale: 1,
 };
@@ -33,7 +33,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${bricolage.variable} ${inter.variable}`}>
       <body>
         <AuthProvider>{children}</AuthProvider>
       </body>

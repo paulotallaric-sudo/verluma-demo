@@ -1,117 +1,231 @@
-import type { ActivityEvent, ReviewCard } from "@/lib/types";
+import type { ActivityEvent, Chantier, Devis } from "@/lib/types";
 
 /**
- * Sylvie Marchand — persona de démonstration de Verluma.
- * Toutes les données de l'application démo racontent la même histoire :
- * 54 ans, Toulouse, réapprend l'occitan de sa grand-mère depuis fin mars,
- * a ajouté l'italien en mai pour un voyage à Bologne.
+ * Denis Roubaud — persona de démonstration d'Établi.
+ * Toutes les données de l'application racontent la même histoire :
+ * menuisier-agenceur à Bordeaux, seul avec un apprenti, sur Établi
+ * depuis septembre 2025. Les montants sont en euros HT.
  */
 export const demoUser = {
-  firstName: "Sylvie",
-  lastName: "Marchand",
-  email: "sylvie@demo.verluma.app",
-  password: "occitan2026", // identifiants de démonstration, affichés sur /connexion
-  city: "Toulouse",
-  memberSince: "28 mars 2026",
+  firstName: "Denis",
+  lastName: "Roubaud",
+  email: "denis@demo.etabli.fr",
+  password: "chantier2026", // identifiants de démonstration, affichés sur /connexion
+  company: "Atelier Roubaud — menuiserie & agencement",
+  city: "Bordeaux",
+  metier: "menuisier",
+  siret: "912 480 335 00027",
+  memberSince: "8 septembre 2025",
   plan: {
-    name: "Fluide",
+    name: "Artisan",
     cycle: "annuel",
-    price: "79 € / an",
-    renewal: "28 mars 2027",
-    paymentMethod: "Visa •••• 4382",
+    price: "240 € / an",
+    renewal: "8 septembre 2026",
+    paymentMethod: "Visa •••• 7204",
   },
-  languages: [
-    { slug: "occitan", name: "Occitan", level: "A2", unitsDone: 9, unitsTotal: 24 },
-    { slug: "italien", name: "Italien", level: "A1", unitsDone: 3, unitsTotal: 34 },
-  ],
   stats: {
-    streakDays: 23,
-    longestStreak: 31,
-    wordsMastered: 412,
-    wordsFragile: 57,
-    wordsStable: 189,
-    wordsSolid: 166,
-    minutesThisWeek: 96,
-    weeklyGoalMinutes: 105, // 15 min × 7 jours
-    accuracy30d: 87,
-    reviewsDueToday: 14,
-    totalLessons: 118,
+    /** Devis envoyés non signés. */
+    quotesPending: 5,
+    quotesPendingAmount: 21350,
+    signatureRate3m: 61,
+    medianSignatureDays: 8,
+    invoicedYearHT: 90100, // = somme de monthlyRevenue
+
+    /** Factures envoyées, non réglées. */
+    toCollect: 12300,
+    /** Dont en retard. */
+    overdue: 3260,
+    activeChantiers: 3,
   },
-  /** Minutes de pratique par jour — 14 derniers jours (dim. 28 juin → sam. 11 juil.). */
-  dailyMinutes: [
-    { day: "29 juin", label: "L", minutes: 16 },
-    { day: "30 juin", label: "M", minutes: 12 },
-    { day: "1 juil.", label: "M", minutes: 18 },
-    { day: "2 juil.", label: "J", minutes: 9 },
-    { day: "3 juil.", label: "V", minutes: 15 },
-    { day: "4 juil.", label: "S", minutes: 22 },
-    { day: "5 juil.", label: "D", minutes: 11 },
-    { day: "6 juil.", label: "L", minutes: 14 },
-    { day: "7 juil.", label: "M", minutes: 17 },
-    { day: "8 juil.", label: "M", minutes: 13 },
-    { day: "9 juil.", label: "J", minutes: 19 },
-    { day: "10 juil.", label: "V", minutes: 12 },
-    { day: "11 juil.", label: "S", minutes: 21 },
-    { day: "12 juil.", label: "D", minutes: 0 }, // aujourd'hui — la leçon du jour n'est pas faite
-  ],
-  /** Mots maîtrisés, relevé hebdomadaire depuis l'inscription (15 semaines). */
-  vocabularyGrowth: [
-    12, 31, 54, 79, 102, 131, 148, 177, 214, 246, 271, 305, 342, 381, 412,
+  /** CA facturé HT par mois, juillet 2025 → juin 2026 (en euros). */
+  monthlyRevenue: [
+    { month: "Juil.", amount: 4200 },
+    { month: "Août", amount: 2600 },
+    { month: "Sept.", amount: 7900 },
+    { month: "Oct.", amount: 8400 },
+    { month: "Nov.", amount: 9600 },
+    { month: "Déc.", amount: 5100 },
+    { month: "Janv.", amount: 6200 },
+    { month: "Févr.", amount: 7800 },
+    { month: "Mars", amount: 9400 },
+    { month: "Avr.", amount: 8900 },
+    { month: "Mai", amount: 10200 },
+    { month: "Juin", amount: 9800 },
   ],
 };
 
-export const reviewsDue: ReviewCard[] = [
-  { id: "r1", front: "l'ostal", back: "la maison", language: "Occitan", interval: "6 jours", strength: "stable" },
-  { id: "r2", front: "polit / polida", back: "joli / jolie", language: "Occitan", interval: "3 jours", strength: "fragile" },
-  { id: "r3", front: "lo mercat", back: "le marché", language: "Occitan", interval: "13 jours", strength: "stable" },
-  { id: "r4", front: "uèi", back: "aujourd'hui", language: "Occitan", interval: "2 jours", strength: "fragile" },
-  { id: "r5", front: "la lenga", back: "la langue", language: "Occitan", interval: "1 mois", strength: "solide" },
-  { id: "r6", front: "trabalhar", back: "travailler", language: "Occitan", interval: "8 jours", strength: "stable" },
-  { id: "r7", front: "doman", back: "demain", language: "Occitan", interval: "4 jours", strength: "fragile" },
-  { id: "r8", front: "la sopa", back: "la soupe", language: "Occitan", interval: "19 jours", strength: "solide" },
-  { id: "r9", front: "il treno", back: "le train", language: "Italien", interval: "5 jours", strength: "stable" },
-  { id: "r10", front: "la colazione", back: "le petit-déjeuner", language: "Italien", interval: "2 jours", strength: "fragile" },
-  { id: "r11", front: "insieme", back: "ensemble", language: "Italien", interval: "7 jours", strength: "stable" },
-  { id: "r12", front: "lo peis", back: "le poisson", language: "Occitan", interval: "3 jours", strength: "fragile" },
-  { id: "r13", front: "l'aiga", back: "l'eau", language: "Occitan", interval: "1 mois", strength: "solide" },
-  { id: "r14", front: "volentieri", back: "volontiers", language: "Italien", interval: "4 jours", strength: "fragile" },
+export const devisList: Devis[] = [
+  {
+    id: "d1",
+    ref: "DE-2026-047",
+    client: "M. et Mme Ferrand",
+    label: "Dressing chambre principale, portes coulissantes",
+    amountHT: 6840,
+    status: "vu",
+    date: "8 juil.",
+    statusDetail: "Vu 3 fois, dernière hier soir — chaud",
+  },
+  {
+    id: "d2",
+    ref: "DE-2026-046",
+    client: "Dr Klein",
+    label: "Bibliothèque murale sur mesure, chêne clair",
+    amountHT: 4980,
+    status: "envoyé",
+    date: "6 juil.",
+    statusDetail: "Relance automatique prévue demain",
+  },
+  {
+    id: "d3",
+    ref: "DE-2026-045",
+    client: "Brasserie Darwin",
+    label: "Banquettes + claustra salle du fond",
+    amountHT: 7420,
+    status: "vu",
+    date: "3 juil.",
+    statusDetail: "Vu il y a 5 jours — relancé mardi",
+  },
+  {
+    id: "d4",
+    ref: "DE-2026-044",
+    client: "Mme Lacoste",
+    label: "Remplacement 4 fenêtres bois double vitrage",
+    amountHT: 5230,
+    status: "signé",
+    date: "1 juil.",
+    statusDetail: "Signé en 2 jours · acompte 30 % encaissé",
+  },
+  {
+    id: "d5",
+    ref: "DE-2026-043",
+    client: "SCI Les Chartrons",
+    label: "Porte cochère restaurée + bloc-porte",
+    amountHT: 2880,
+    status: "envoyé",
+    date: "28 juin",
+    statusDetail: "Jamais ouvert — relance J+12 partie",
+  },
+  {
+    id: "d6",
+    ref: "DE-2026-042",
+    client: "M. Bideau",
+    label: "Escalier droit hêtre, garde-corps câbles",
+    amountHT: 8790,
+    status: "refusé",
+    date: "24 juin",
+    statusDetail: "Parti avec un concurrent — motif : délai",
+  },
+  {
+    id: "d7",
+    ref: "DE-2026-041",
+    client: "Mme Okafor",
+    label: "Plan de travail noyer massif + crédence",
+    amountHT: 2140,
+    status: "signé",
+    date: "21 juin",
+    statusDetail: "Signé le jour même · chantier planifié",
+  },
+];
+
+export const chantiers: Chantier[] = [
+  {
+    id: "c1",
+    label: "Cuisine complète — pose et agencement",
+    client: "Famille Vasseur",
+    city: "Bordeaux Caudéran",
+    amountHT: 18400,
+    progress: 65,
+    stage: "Caissons posés, façades en cours",
+    dueLabel: "Fin prévue : 24 juillet",
+  },
+  {
+    id: "c2",
+    label: "Remplacement 4 fenêtres bois",
+    client: "Mme Lacoste",
+    city: "Le Bouscat",
+    amountHT: 5230,
+    progress: 15,
+    stage: "Fenêtres commandées chez le fournisseur",
+    dueLabel: "Pose : semaine du 18 août",
+  },
+  {
+    id: "c3",
+    label: "Plan de travail noyer + crédence",
+    client: "Mme Okafor",
+    city: "Bordeaux Chartrons",
+    amountHT: 2140,
+    progress: 40,
+    stage: "Débit fait, façonnage en atelier",
+    dueLabel: "Pose : 22 juillet",
+    alert: "Situation intermédiaire à facturer (40 %)",
+  },
+];
+
+export const encaissements = [
+  {
+    id: "f1",
+    ref: "FA-2026-038",
+    client: "Famille Vasseur",
+    label: "Situation n° 2 — cuisine (40 %)",
+    amountTTC: 8096,
+    due: "Échéance : 20 juillet",
+    state: "à venir" as const,
+  },
+  {
+    id: "f2",
+    ref: "FA-2026-036",
+    client: "Syndic Foncia Gambetta",
+    label: "Remplacement porte hall d'immeuble",
+    amountTTC: 3260,
+    due: "En retard de 18 jours — 3ᵉ relance partie",
+    state: "retard" as const,
+  },
+  {
+    id: "f3",
+    ref: "FA-2026-037",
+    client: "M. Delhome",
+    label: "Solde volets bois (2 paires)",
+    amountTTC: 944,
+    due: "Échéance : 15 juillet",
+    state: "à venir" as const,
+  },
 ];
 
 export const recentActivity: ActivityEvent[] = [
   {
-    date: "Hier, 21 h 40",
-    label: "Révision du soir terminée",
-    detail: "18 cartes · 16 justes · 6 min",
-    kind: "review",
+    date: "Hier, 21 h 12",
+    label: "Devis Ferrand consulté (3ᵉ fois)",
+    detail: "DE-2026-047 · 6 840 € HT — pensez à appeler",
+    kind: "devis",
   },
   {
-    date: "Hier, 8 h 05",
-    label: "Leçon « Au marché » terminée",
-    detail: "Occitan · Unité 9 · précision 92 %",
-    kind: "lesson",
+    date: "Hier, 9 h 30",
+    label: "Acompte encaissé — Mme Lacoste",
+    detail: "1 726 € TTC par carte · FA-2026-039",
+    kind: "paiement",
   },
   {
-    date: "Vendredi",
-    label: "400 mots maîtrisés en occitan",
-    detail: "Palier atteint — 412 aujourd'hui",
-    kind: "milestone",
+    date: "Mercredi",
+    label: "Devis signé électroniquement",
+    detail: "DE-2026-044 · fenêtres Lacoste · signé en 2 jours",
+    kind: "signature",
   },
   {
-    date: "Vendredi",
-    label: "Leçon « Il conto, per favore » terminée",
-    detail: "Italien · Unité 3 · précision 84 %",
-    kind: "lesson",
+    date: "Mercredi",
+    label: "Chantier Vasseur passé à 65 %",
+    detail: "Situation n° 2 générée automatiquement",
+    kind: "chantier",
   },
   {
-    date: "Jeudi",
-    label: "Série de 20 jours",
-    detail: "Record personnel : 31 jours",
-    kind: "streak",
+    date: "Mardi",
+    label: "Relance envoyée — Brasserie Darwin",
+    detail: "DE-2026-045 · relance douce J+5",
+    kind: "devis",
   },
   {
-    date: "Jeudi",
-    label: "Révision du matin terminée",
-    detail: "21 cartes · 19 justes · 7 min",
-    kind: "review",
+    date: "Lundi",
+    label: "Facture Foncia en retard : 3ᵉ relance",
+    detail: "FA-2026-036 · 3 260 € TTC · mise en demeure proposée",
+    kind: "paiement",
   },
 ];

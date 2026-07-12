@@ -2,19 +2,18 @@ import localFont from "next/font/local";
 
 /**
  * Polices auto-hébergées (aucune requête tierce, RGPD-friendly).
- * Fraunces : voix éditoriale de la marque (titres, chiffres clés).
+ * Bricolage Grotesque : voix de la marque (titres, chiffres clés) —
+ * une grotesque de caractère, côté atelier.
  * Inter : interface et textes courants.
  */
-export const fraunces = localFont({
+export const bricolage = localFont({
   src: [
-    { path: "../fonts/fraunces-normal-latin.woff2", style: "normal" },
-    { path: "../fonts/fraunces-normal-latin-ext.woff2", style: "normal" },
-    { path: "../fonts/fraunces-italic-latin.woff2", style: "italic" },
-    { path: "../fonts/fraunces-italic-latin-ext.woff2", style: "italic" },
+    { path: "../fonts/bricolage-normal-latin.woff2", style: "normal" },
+    { path: "../fonts/bricolage-normal-latin-ext.woff2", style: "normal" },
   ],
-  weight: "300 700",
+  weight: "200 800",
   display: "swap",
-  variable: "--font-fraunces",
+  variable: "--font-display-src",
 });
 
 export const inter = localFont({

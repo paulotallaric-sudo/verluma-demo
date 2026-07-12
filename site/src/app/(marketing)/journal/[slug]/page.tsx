@@ -45,8 +45,8 @@ export default async function ArticlePage({ params }: Props) {
     datePublished: article.date,
     inLanguage: "fr",
     author: { "@type": "Person", name: article.author.name },
-    publisher: { "@type": "Organization", name: "Verluma", url: "https://verluma.app" },
-    mainEntityOfPage: `https://verluma.app/journal/${article.slug}`,
+    publisher: { "@type": "Organization", name: "Établi", url: "https://etabli.fr" },
+    mainEntityOfPage: `https://etabli.fr/journal/${article.slug}`,
   };
 
   return (
@@ -109,11 +109,11 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           <footer className="mt-14 rounded-(--radius-card) bg-sand p-8 text-center">
-            <h2 className="display-md text-ink-900">Envie d&apos;entendre ces voix par vous-même ?</h2>
+            <h2 className="display-md text-ink-900">Et si votre prochain devis partait ce soir ?</h2>
             <p className="mx-auto mt-2 max-w-md text-[0.9375rem] text-ink-600">
-              La première leçon prend six minutes, sans compte ni carte bancaire.
+              Créez un devis d&apos;essai en deux minutes, sans compte ni carte bancaire.
             </p>
-            <ButtonLink href="/demo" className="mt-5">Essayer une leçon</ButtonLink>
+            <ButtonLink href="/demo" className="mt-5">Créer un devis d&apos;essai</ButtonLink>
           </footer>
         </Container>
 

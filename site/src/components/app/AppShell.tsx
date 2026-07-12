@@ -17,24 +17,24 @@ const navigation = [
     ),
   },
   {
-    href: "/app/lecons",
-    label: "Leçons",
+    href: "/app/devis",
+    label: "Devis",
     icon: (
-      <path d="M4 4.5h5.5a2 2 0 0 1 2 2V16a2 2 0 0 0-2-2H4V4.5Zm12 0h-4.5v9.5H16V4.5Z" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 3h6l3 3v11H6V3Zm6 0v3h3M8.5 10h4M8.5 13h4" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
-    href: "/app/revision",
-    label: "Révision",
+    href: "/app/chantiers",
+    label: "Chantiers",
     icon: (
-      <path d="M16 8A6 6 0 1 0 4.7 11M4 6.5V11h4.5" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 16h14M4.5 16V9L10 4.5 15.5 9v7M8 16v-4h4v4" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
-    href: "/app/progres",
-    label: "Progrès",
+    href: "/app/tresorerie",
+    label: "Trésorerie",
     icon: (
-      <path d="M4 16V9m4 7V4m4 12v-5m4 5V7" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round" />
+      <path d="M4 16V9m4 7V4m4 12v-5m4 5V7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
     ),
   },
   {
@@ -59,7 +59,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const isOnboarding = pathname === "/app/bienvenue";
-  const isLessonPlayer = pathname === "/app/lecons/du-jour";
+  const isQuoteBuilder = pathname === "/app/devis/nouveau";
 
   useEffect(() => {
     if (loading) return;
@@ -74,14 +74,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   if (loading || !session || (!session.onboarded && !isOnboarding)) {
     return (
-      <div className="flex min-h-dvh items-center justify-center" role="status" aria-label="Chargement de votre espace">
+      <div className="flex min-h-dvh items-center justify-center" role="status" aria-label="Chargement de votre atelier">
         <LogoMark className="h-12 w-12 animate-pulse" />
       </div>
     );
   }
 
-  // Onboarding et lecteur de leçon : plein écran, sans navigation.
-  if (isOnboarding || isLessonPlayer) {
+  // Onboarding et créateur de devis : plein écran, sans navigation.
+  if (isOnboarding || isQuoteBuilder) {
     return <main className="min-h-dvh">{children}</main>;
   }
 
@@ -90,7 +90,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Barre latérale desktop */}
       <aside className="hidden border-r border-line bg-card lg:flex lg:flex-col">
         <div className="flex h-16 items-center border-b border-line px-6">
-          <Link href="/app" aria-label="Verluma — votre espace">
+          <Link href="/app" aria-label="Établi — votre espace">
             <Logo />
           </Link>
         </div>
@@ -137,7 +137,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* En-tête mobile */}
       <div className="flex min-w-0 flex-col">
         <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-line bg-paper/90 px-5 backdrop-blur-md lg:hidden">
-          <Link href="/app" aria-label="Verluma — votre espace">
+          <Link href="/app" aria-label="Établi — votre espace">
             <Logo />
           </Link>
           <Link

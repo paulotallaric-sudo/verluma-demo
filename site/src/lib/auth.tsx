@@ -12,10 +12,10 @@ import { demoUser } from "@/lib/data/demo-user";
 import { track } from "@/lib/analytics";
 
 /**
- * Authentification simulée du site de démonstration.
+ * Authentification simulée du site de démonstration d'Établi.
  * La « session » vit dans localStorage — aucun serveur, aucune donnée
  * transmise. Deux chemins :
- *  - connexion avec les identifiants de démonstration (compte Sylvie, riche) ;
+ *  - connexion avec les identifiants de démonstration (compte Denis, riche) ;
  *  - inscription libre (compte neuf, passe par l'onboarding).
  */
 
@@ -23,11 +23,11 @@ export type Session = {
   firstName: string;
   lastName: string;
   email: string;
-  /** Compte de démonstration (Sylvie) ou compte créé à la volée. */
+  /** Compte de démonstration (Denis) ou compte créé à la volée. */
   kind: "demo" | "fresh";
   onboarded: boolean;
-  language?: string;
-  dailyGoal?: number;
+  metier?: string;
+  company?: string;
 };
 
 type AuthContextValue = {
@@ -36,11 +36,11 @@ type AuthContextValue = {
   loading: boolean;
   login: (email: string, password: string) => { ok: true } | { ok: false; error: string };
   signup: (data: { firstName: string; email: string; password: string }) => void;
-  completeOnboarding: (data: { language: string; dailyGoal: number }) => void;
+  completeOnboarding: (data: { metier: string; company: string }) => void;
   logout: () => void;
 };
 
-const STORAGE_KEY = "verluma:session";
+const STORAGE_KEY = "etabli:session";
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 

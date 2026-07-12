@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AppShell } from "@/components/app/AppShell";
 
 export const metadata: Metadata = {
-  title: { default: "Votre espace", template: "%s — Verluma" },
+  title: { default: "Votre atelier", template: "%s — Établi" },
   robots: { index: false, follow: false },
 };
 
